@@ -30,3 +30,6 @@ cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 
 cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
+# 助力码替换为自己的
+sed -i 's/http:\/\/jd.turinglabs.net\/api\/v2\/jd\/jxfactory\/read\/${randomCount}\//https:\/\/gitee.com\/l107868382\/randomsharecode\/raw\/master\/v1\/JD_Dream_Factory.json/g' /scripts/jd_dreamFactory.js
+
