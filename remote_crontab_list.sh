@@ -1,6 +1,3 @@
-# 京东赚京豆开团
-10 * * * * node /scripts/jd_zjd_tuan.js |ts >> /scripts/logs/jd_zjd_tuan.log 2>&1
-
 # 惊喜财富岛体现
 0 0 * * * node conc /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1
 
