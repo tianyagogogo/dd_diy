@@ -19,7 +19,7 @@
 # 店铺大转盘
 3 0,10,23 * * * node /scripts/monk_shop_lottery.js >> /scripts/logs/monk_shop_lottery.log 2>&1
 # 有机牧场
-0 0,1-22/2 1-31 4-7 node /scripts/monk_pasture.js >> /scripts/logs/monk_pasture.log 2>&1
+0 0,1-22/2 1-31 4-7 * node /scripts/monk_pasture.js >> /scripts/logs/monk_pasture.log 2>&1
 
 # 长期活动
 # 百变大咖秀
