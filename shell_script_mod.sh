@@ -7,7 +7,7 @@ if [ ! -d "/jd_diy/" ]; then
 else
     echo "更新jd_diy脚本相关文件..."
     git -C /jd_diy reset --hard
-    git -C /jd_diy pull origin shell_script --rebase
+    git -C /jd_diy pull origin lxk0301_shell --rebase
 fi
 cp -f /jd_diy/scripts/*_*.js /scripts
 
