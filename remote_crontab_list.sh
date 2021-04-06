@@ -35,5 +35,5 @@
 10 10 * * * node /scripts/z_marketLottery.js >> /scripts/logs/z_marketLottery.log 2>&1
 
 #创维408下班全勤奖
-15 08 2-18 4 * node /scripts/monk_skyworth.js >> /scripts/logs/monk_skyworth.log 2>&1
+15 08 2-18 4 * node /scripts/monk_skyworth_car.js >> /scripts/logs/monk_skyworth_car.log 2>&1
 
