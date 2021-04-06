@@ -14,5 +14,9 @@ cp -f /jd_diy/scripts/*_*.js /scripts
 ## 拷贝京东超市兑换脚本
 cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 
+## monk_inter_shop_sign
+rm -rf /scripts/monk_inter_shop_sign.js
+wget -N https://raw.githubusercontent.com/monk-coder/dust/dust/normal/monk_inter_shop_sign.js /scripts/monk_inter_shop_sign.js
+
 cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
