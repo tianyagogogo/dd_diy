@@ -15,3 +15,4 @@ cp -f /jd_diy/scripts/*_*.js /scripts
 cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 
 cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
+
