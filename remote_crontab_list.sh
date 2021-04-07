@@ -37,3 +37,6 @@
 #创维408下班全勤奖
 15 8 2-18 4 * node /scripts/monk_skyworth_car.js >> /scripts/logs/monk_skyworth_car.log 2>&1
 
+#京东小魔方
+10 10 7-9 4 * node /scripts/z_xmf.js >> /scripts/logs/z_xmf.log 2>&1
+
