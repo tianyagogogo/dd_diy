@@ -40,6 +40,3 @@
 #京东小魔方
 10 10 7-9 4 * node /scripts/z_xmf.js >> /scripts/logs/z_xmf.log 2>&1
 
-#5G超级盲盒 
-5 1,6,11,16,21 * 3-4 * node /scripts/z_super5g.js >> /scripts/logs/z_super5g.log 2>&1
-
