@@ -24,6 +24,7 @@ cp -f /monk/car/*_*.js /scripts
 cp -f /monk/i-chenzhe/*_*.js /scripts
 cp -f /monk/member/*_*.js /scripts
 cp -f /monk/normal/*_*.js /scripts
+cp -f /monk/backup/red_rain.js /scripts
 
 ## 拷贝京东超市兑换脚本
 cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
