@@ -40,3 +40,5 @@
 #京东小魔方
 10 10 7-9 4 * node /scripts/z_xmf.js >> /scripts/logs/z_xmf.log 2>&1
 
+#京东直播雨
+1 0,9,11,13,15,17,19,20,21,23 * 4-6 * node /scripts/red_rain.js >> /scripts/logs/red_rain.log 2>&1
