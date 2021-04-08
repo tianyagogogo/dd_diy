@@ -5,7 +5,7 @@
 59 23 * * * sleep 59.9; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
 
 # 母婴-跳一跳
-5 8,14,20 6-13 4 * node /scripts/z_mother_jump.js |ts >> /scripts/logs/z_mother_jump.log 2>&1
+5 8,14,20 17-25 3 * node /scripts/z_mother_jump.js |ts >> /scripts/logs/z_mother_jump.log 2>&1
 
 # 华硕-爱奇艺
 0 0 5-11 4 * node /scripts/z_asus_iqiyi.js |ts >> /scripts/logs/z_asus_iqiyi.log 2>&1
@@ -32,11 +32,14 @@
 # 超级摇一摇
 3 20 * * * node /scripts/z_shake.js >> /scripts/logs/z_shake.log 2>&1
 # 京东超市-大转盘
-10 10 * * * node /scripts/z_marketLottery.js >> /scripts/logs/z_marketLottery.log 2>&1
+3 10 * * * node /scripts/z_marketLottery.js >> /scripts/logs/z_marketLottery.log 2>&1
 
 #创维408下班全勤奖
 15 8 2-18 4 * node /scripts/monk_skyworth_car.js >> /scripts/logs/monk_skyworth_car.log 2>&1
 
 #京东小魔方
 10 10 7-9 4 * node /scripts/z_xmf.js >> /scripts/logs/z_xmf.log 2>&1
+
+#5G超级盲盒 
+5 1,6,11,16,21 * 3-4 * node /scripts/z_super5g.js >> /scripts/logs/z_super5g.log 2>&1
 
