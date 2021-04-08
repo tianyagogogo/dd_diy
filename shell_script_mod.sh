@@ -9,7 +9,7 @@ else
     git -C /jd_diy reset --hard
     git -C /jd_diy pull origin lxk0301_shell --rebase
 fi
-cp -f /jd_diy/scripts/*_*.js /scripts
+cp -f /jd_diy/scripts/*.js /scripts
 
 ## 克隆monk-coder仓库
 if [ ! -d "/monk/" ]; then
