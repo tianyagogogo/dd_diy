@@ -1,8 +1,8 @@
 # 惊喜财富岛提现
-59 23 * * * sleep 58; node /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1
+59 23 * * * sleep 59; node /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1
 
 # 京东超市兑换
-59 23 * * * sleep 59.9; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
+59 23 * * * sleep 58; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
 
 # 母婴-跳一跳
 5 8,14,20 17-25 3 * node /scripts/z_mother_jump.js |ts >> /scripts/logs/z_mother_jump.log 2>&1
