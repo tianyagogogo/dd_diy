@@ -14,7 +14,7 @@ cp -f /jd_diy/scripts/*.js /scripts
 ## 克隆monk-coder仓库
 if [ ! -d "/monk/" ]; then
     echo "未检查到monk-coder仓库脚本，初始化下载相关脚本..."
-    git clone -b dust https://github.com/monk-coder/dust.git /monk
+    git clone -b dust https://github.com/jonrea7/dust.git /monk
 else
     echo "更新monk-coder脚本相关文件..."
     git -C /monk reset --hard
