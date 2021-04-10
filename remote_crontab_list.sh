@@ -1,5 +1,5 @@
 # 惊喜财富岛提现
-59 23 * * * sleep 59; node /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1
+0 0 * * * node /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1
 
 # 京东超市兑换
 59 23 * * * sleep 58; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
@@ -38,7 +38,7 @@
 15 8 2-18 4 * node /scripts/monk_skyworth_car.js >> /scripts/logs/monk_skyworth_car.log 2>&1
 
 #京东小魔方
-10 10 7-9 4 * node /scripts/z_xmf.js >> /scripts/logs/z_xmf.log 2>&1
+10 10 10-12 4 * node /scripts/z_xmf.js >> /scripts/logs/z_xmf.log 2>&1
 
 #京东直播雨
 0,1 0,9,11,13,15,17,19,20,21,23 * 4-6 * node /scripts/red_rain.js >> /scripts/logs/red_rain.log 2>&1
