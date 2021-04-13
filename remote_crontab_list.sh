@@ -5,7 +5,7 @@
 59 23 * * * sleep 57; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
 
 # 母婴-跳一跳
-5 8,14,20 17-25 3 * node /scripts/z_mother_jump.js |ts >> /scripts/logs/z_mother_jump.log 2>&1
+5 8,14,20 13-19 4 * node /scripts/z_mother_jump.js |ts >> /scripts/logs/z_mother_jump.log 2>&1
 
 # 华硕-爱奇艺
 0 0 5-11 4 * node /scripts/z_asus_iqiyi.js |ts >> /scripts/logs/z_asus_iqiyi.log 2>&1
