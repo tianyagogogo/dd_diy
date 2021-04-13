@@ -46,3 +46,6 @@
 #“韧”性探索 空降好礼
 15 08 5-30 4 node /scripts/monk_vinda.js >> /scripts/logs/monk_vinda.log 2>&1
 
+#整点京豆雨
+1 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
+
