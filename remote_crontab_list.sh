@@ -42,3 +42,7 @@
 
 #京东直播雨
 0,1 0,9,11,13,15,17,19,20,21,23 * 4-6 * node /scripts/red_rain.js >> /scripts/logs/red_rain.log 2>&1
+
+#“韧”性探索 空降好礼
+15 08 5-30 4 node /scripts/monk_vinda.js >> /scripts/logs/monk_vinda.log 2>&1
+
