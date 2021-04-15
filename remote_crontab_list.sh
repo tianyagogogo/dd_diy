@@ -2,7 +2,10 @@
 59 23 * * * sleep 59; node /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1
 
 # 京东超市兑换
-59 23 * * * sleep 57; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
+59 23 * * * sleep 58; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
+
+#整点京豆雨
+#1 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
 
 # 母婴-跳一跳
 5 8,14,20 13-19 4 * node /scripts/z_mother_jump.js |ts >> /scripts/logs/z_mother_jump.log 2>&1
@@ -46,6 +49,5 @@
 #“韧”性探索 空降好礼
 15 08 5-30 4 node /scripts/monk_vinda.js >> /scripts/logs/monk_vinda.log 2>&1
 
-#整点京豆雨
-1 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
+
 
