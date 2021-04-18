@@ -26,5 +26,5 @@ cp -f /jd_diy/scripts/*.js /scripts
 #cp -f /monk/normal/*_*.js /scripts
 
 ## 拷贝京东超市兑换脚本
-cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
+#cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
