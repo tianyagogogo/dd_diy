@@ -1,5 +1,5 @@
 #整点京豆雨
-1 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
+0,1 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1
 
 #京东直播雨
 0,1 0,9,11,13,15,17,19,20,21,23 * 4-6 * node /scripts/red_rain.js >> /scripts/logs/red_rain.log 2>&1
@@ -16,7 +16,7 @@
 # 惊喜财富岛提现
 59 23 * * * sleep 59; node /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1
 # 京东超市兑换
-59 23 * * * sleep 58.5; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
+# 59 23 * * * sleep 58.5; node /scripts/l_jd_bluecoin.js |ts >> /scripts/logs/l_jd_bluecoin.log 2>&1
 
 
 # 母婴-跳一跳
