@@ -49,7 +49,7 @@ function main(){
     diycron
 }
 
-
+main
 
 ## 拷贝京东超市兑换脚本
 #cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
