@@ -42,6 +42,8 @@ function diycron(){
     echo "59 23 * * * sleep 59; node /scripts/l_jx_cfdtx.js |ts >> /scripts/logs/l_jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
+diycron
+
 ## 拷贝京东超市兑换脚本
 #cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 # cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
