@@ -41,3 +41,6 @@
 10 10,18 * 4 * node /scripts/z_xmf.js >> /scripts/logs/z_xmf.log 2>&1
 #“韧”性探索 空降好礼
 15 08 5-30 4 node /scripts/monk_vinda.js >> /scripts/logs/monk_vinda.log 2>&1
+# 健康社区 活动入口：京东app-边玩边赚
+25 10-22/3 * * * node /scripts/z_health_community.js >> /scripts/logs/z_health_community.log 2>&1
+
