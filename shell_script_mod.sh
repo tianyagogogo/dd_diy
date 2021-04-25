@@ -65,7 +65,7 @@ function jddj_diy(){
     echo "0 8,11,16 * * * node /scripts/jddj_fruit.js >> /scripts/logs/jddj_fruit.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #京东到家鲜豆庄园收水滴脚本
-    echo "*/10 * * * * node /scripts/jddj_getPoints.js >> /scripts/logs/jddj_getPoints.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "*/20 * * * * node /scripts/jddj_getPoints.js >> /scripts/logs/jddj_getPoints.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #京东到家鲜豆庄园脚本
     echo "15 8 * * * node /scripts/jddj_plantBeans.js >> /scripts/logs/jddj_plantBeans.log 2>&1" >> /scripts/docker/merged_list_file.sh 
