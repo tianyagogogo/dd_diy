@@ -44,8 +44,36 @@ function jd_diy(){
     cp -f /jd_diy/scripts/*.js /scripts
     
 }
+
+function jddj_diy(){
+    ## 克隆jddj_diy仓库
+    if [ ! -d "/jddj_diy/" ]; then
+        echo "未检查到克隆jd_diy仓库，初始化下载相关脚本..."
+        git clone -b main https://github.com/717785320/JDDJ.git /jddj_diy
+    else
+        echo "更新jd_diy脚本相关文件..."
+        git -C /jddj_diy reset --hard
+        git -C /jddj_diy pull origin main --rebase
+    fi
+    cp -f /jddj_diy/JDDJ/*.js /scripts
+    
+    #京东到家鲜豆任务脚本
+    echo "10 8 * * * node /scripts/jddj_bean.js >> /scripts/logs/jddj_bean.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
+    #京东到家果园任务脚本
+    echo "0 8,11,16 * * * node /scripts/jddj_fruit.js >> /scripts/logs/jddj_fruit.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
+    #京东到家鲜豆庄园收水滴脚本
+    echo "*/10 * * * * node /scripts/jddj_getPoints.js >> /scripts/logs/jddj_getPoints.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
+    #京东到家鲜豆庄园脚本
+    echo "15 8 * * * node /scripts/jddj_plantBeans.js >> /scripts/logs/jddj_plantBeans.log 2>&1" >> /scripts/docker/merged_list_file.sh 
+    
+}
+
 function main(){
     jd_diy
+    jddj_diy
     diycron
 }
 
