@@ -56,6 +56,7 @@ function jddj_diy(){
         git -C /jddj_diy pull origin main --rebase
     fi
     cp -f /jddj_diy/*.js /scripts
+    cp -f /scripts/logs/jddj_cookie.js /scripts
     
     #京东到家鲜豆任务脚本
     echo "10 8 * * * node /scripts/jddj_bean.js >> /scripts/logs/jddj_bean.log 2>&1" >> /scripts/docker/merged_list_file.sh
