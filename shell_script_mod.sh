@@ -72,8 +72,8 @@ function jddj_diy(){
 }
 
 function main(){
-    jd_diy
     jddj_diy
+    jd_diy
     diycron
 }
 
