@@ -29,6 +29,9 @@ function diycron(){
     echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 京喜财富岛提现
     echo "59 23 * * * sleep 59; node /scripts/l_jx_cfdtx.js >> /scripts/logs/l_jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # 赚京豆(微信小程序)
+    echo "10,21,32,43,56 5 * * * node /scripts/jd_syj.js >> /scripts/logs/jd_syj.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
 }
 
 function jd_diy(){
