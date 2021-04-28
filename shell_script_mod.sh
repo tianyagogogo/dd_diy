@@ -58,6 +58,8 @@ function jddj_diy(){
         git -C /jddj_diy reset --hard
         git -C /jddj_diy pull origin main --rebase
     fi
+    
+    rm -rf /jddj_diy/sendNotify.js
     cp -f /jddj_diy/*.js /scripts
     cp -f /scripts/logs/jddj_cookie.js /scripts
     
