@@ -1,21 +1,8 @@
 #!/bin/sh
 
-## 克隆monk-coder仓库
-#if [ ! -d "/monk/" ]; then
-#    echo "未检查到monk-coder仓库脚本，初始化下载相关脚本..."
-#    git clone -b monk https://github.com/l107868382/dd_syc.git /monk
-#else
-#    echo "更新monk-coder脚本相关文件..."
-#    git -C /monk reset --hard
-#    git -C /monk pull origin monk --rebase
-#fi
-#cp -f /monk/car/*_*.js /scripts
-#cp -f /monk/i-chenzhe/*_*.js /scripts
-#cp -f /monk/member/*_*.js /scripts
-#cp -f /monk/normal/*_*.js /scripts
+
 
 function diycron(){
-    # monkcoder whyour 定时任务
     for jsname in /scripts/dust_*.js /scripts/whyour_*.js /scripts/z_*.js /scripts/monk_*.js; do
         jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
         test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
@@ -45,7 +32,22 @@ function jd_diy(){
         git -C /jd_diy pull origin lxk0301_shell --rebase
     fi
     cp -f /jd_diy/scripts/*.js /scripts
-    
+}
+
+function monk_diy(){
+    ## 克隆monk-coder仓库
+    if [ ! -d "/monk/" ]; then
+        echo "未检查到monk-coder仓库脚本，初始化下载相关脚本..."
+        git clone -b monk https://github.com/l107868382/dd_syc.git /monk
+    else
+        echo "更新monk-coder脚本相关文件..."
+        git -C /monk reset --hard
+        git -C /monk pull origin monk --rebase
+    fi
+    cp -f /monk/car/*_*.js /scripts
+    cp -f /monk/i-chenzhe/*_*.js /scripts
+    cp -f /monk/member/*_*.js /scripts
+    cp -f /monk/normal/*_*.js /scripts
 }
 
 function jddj_diy(){
@@ -83,6 +85,7 @@ function jddj_diy(){
 function main(){
     jddj_diy
     jd_diy
+    monk_diy
     diycron
 }
 
