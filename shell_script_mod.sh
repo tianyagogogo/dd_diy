@@ -79,8 +79,14 @@ function jddj_diy(){
     
     #京东到家鲜豆庄园脚本
     echo "15 8 * * * node /scripts/jddj_plantBeans.js >> /scripts/logs/jddj_plantBeans.log 2>&1" >> /scripts/docker/merged_list_file.sh 
-    
 }
+
+# 删除和lxk重复的脚本
+function removeJs(){
+    cd /scripts
+    rm -rf z_health_* z_marketLottery.js z_entertainment.js monk_skyworth_car.js z_tcl_lining.js z_super5g.js
+}
+
 
 function main(){
     jddj_diy
