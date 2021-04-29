@@ -91,6 +91,7 @@ function main(){
     jddj_diy
     jd_diy
     monk_diy
+    removeJs
     diycron
 }
 
