@@ -83,7 +83,7 @@ function jddj_diy(){
 
 # 删除和lxk重复的脚本
 function removeJs(){
-    rm -rf /scripts/z_health_* /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js
+    rm -rf /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js
 }
 
 # 下载其它库
