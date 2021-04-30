@@ -38,11 +38,13 @@ function monk_diy(){
     ## 克隆monk-coder仓库
     if [ ! -d "/monk/" ]; then
         echo "未检查到monk-coder仓库脚本，初始化下载相关脚本..."
-        git clone -b monk https://github.com/l107868382/dd_syc.git /monk
+        #git clone -b monk https://github.com/l107868382/dd_syc.git /monk
+        git clone -b dust https://github.com/monk-coder/dust.git /monk
+        
     else
         echo "更新monk-coder脚本相关文件..."
         git -C /monk reset --hard
-        git -C /monk pull origin monk --rebase
+        git -C /monk pull origin dust --rebase
     fi
     cp -f /monk/car/*_*.js /scripts
     cp -f /monk/i-chenzhe/*_*.js /scripts
