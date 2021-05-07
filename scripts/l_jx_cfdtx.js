@@ -1,6 +1,16 @@
 /**
 *
   Name:财富岛提现
+  Address: 京喜App ====>>>> 全民赚大钱
+  Author：MoPoQAQ
+  Update: 2021/2/2 13:00
+
+  Thanks: 
+    💢疯疯💢
+    银河大佬：https://github.com/zbt494
+  获取Token方式：
+  打开【❗️京喜农场❗️】，手动任意完成<工厂任务>、<签到任务>、<金牌厂长任务>一项，提示获取cookie成功即可，然后退出跑任务脚本
+
 *
 **/
 
@@ -14,7 +24,6 @@ const jdTokenNode = [
     '{"timestamp":"1617079997434","phoneid":"10yv0oc6xis1baidni8aqv2zkj4qz0zopfke7dnp","farm_jstoken":"cd7b6cff9a9cb615ccd452de2558d198"}',
     '{"timestamp":"1617080006479","phoneid":"d87rm16z6owjvg4r49f6mph6c43no0h0g7nuo3ph","farm_jstoken":"e6b072094e04bc2264109c870378db16"}'
     ];
-    
 $.result = [];
 $.cookieArr = [];
 $.currentCookie = '';
@@ -47,7 +56,7 @@ function cashOut() {
     $.get(
       taskUrl(
         `consume/CashOut`,
-        `ddwMoney=100&dwIsCreateToken=0&ddwMinPaperMoney=100000&strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}`
+        `ddwMoney=100&dwIsCreateToken=0&ddwMinPaperMoney=150000&strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}`
       ), 
       async (err, resp, data) => {
         try {
