@@ -84,11 +84,11 @@ function jddj_diy(){
 function longzhuzhu_diy(){
     if [ ! -d "/longzhuzhu/" ]; then
         echo "未检查到longzhuzhu仓库脚本，初始化下载相关脚本..."
-        git clone -b dev https://github.com/nianyuguai/longzhuzhu.git /longzhuzhu
+        git clone -b main https://github.com/nianyuguai/longzhuzhu.git /longzhuzhu
     else
         echo "更新longzhuzhu脚本相关文件..."
         git -C /longzhuzhu reset --hard
-        git -C /longzhuzhu pull origin dev --rebase
+        git -C /longzhuzhu pull origin main --rebase
     fi
     cp -f /longzhuzhu/qx/*_*.js /scripts
     
@@ -96,8 +96,6 @@ function longzhuzhu_diy(){
     echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 半点京豆雨
     echo "0 20-23/1 * * * node /scripts/jd_half_redrain.js >> /scripts/logs/jd_half_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # 直播间抽奖（全局）
-    echo "5 8-23/1 * * * node /scripts/jd_live_lottery_social.js >> /scripts/logs/jd_live_lottery_social.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # 删除和lxk重复的脚本
