@@ -83,7 +83,7 @@ function jddj_diy(){
 }
 
 # 下载龙猪猪 红包雨脚本
-function diy_longzhuzhu(){
+function longzhuzhu_diy(){
     if [ ! -d "/longzhuzhu/" ]; then
         echo "未检查到longzhuzhu仓库脚本，初始化下载相关脚本..."
         git clone -b dev https://github.com/nianyuguai/longzhuzhu.git /longzhuzhu
@@ -113,7 +113,7 @@ function main(){
     jddj_diy
     jd_diy
     monk_diy
-    diy_longzhuzhu
+    longzhuzhu_diy
     removeJs
     diycron
 }
