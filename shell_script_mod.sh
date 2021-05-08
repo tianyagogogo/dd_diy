@@ -92,7 +92,7 @@ function diy_longzhuzhu(){
         git -C /longzhuzhu reset --hard
         git -C /longzhuzhu pull origin dev --rebase
     fi
-    cp -f /monk/qx/*_*.js /scripts
+    cp -f /longzhuzhu/qx/*_*.js /scripts
     
     # 整点京豆雨
     echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
@@ -107,18 +107,13 @@ function removeJs(){
     rm -rf /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js
 }
 
-# 下载其它库
-function diy(){
-    # longzhuzhu jd_super_redrain
-    rm -rf /scripts/jd_super_redrain.js
-    wget -P /scripts/  https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_super_redrain.js
-}
+
 
 function main(){
     jddj_diy
     jd_diy
     monk_diy
-    diy
+    diy_longzhuzhu
     removeJs
     diycron
 }
