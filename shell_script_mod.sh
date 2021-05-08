@@ -12,8 +12,7 @@ function diycron(){
     # 修改docker_entrypoint.sh执行频率
     ln -sf /usr/local/bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint_mix.sh
     echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # 整点京豆雨
-    echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
+   
     # 京喜财富岛提现
     echo "59 23 * * * sleep 59; node /scripts/l_jx_cfdtx.js >> /scripts/logs/l_jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 赚京豆(微信小程序)
@@ -81,6 +80,26 @@ function jddj_diy(){
     
     #京东到家鲜豆庄园脚本
     echo "15 8 * * * node /scripts/jddj_plantBeans.js >> /scripts/logs/jddj_plantBeans.log 2>&1" >> /scripts/docker/merged_list_file.sh 
+}
+
+# 下载龙猪猪 红包雨脚本
+function diy_longzhuzhu(){
+    if [ ! -d "/longzhuzhu/" ]; then
+        echo "未检查到longzhuzhu仓库脚本，初始化下载相关脚本..."
+        git clone -b dev https://github.com/nianyuguai/longzhuzhu.git /longzhuzhu
+    else
+        echo "更新longzhuzhu脚本相关文件..."
+        git -C /longzhuzhu reset --hard
+        git -C /longzhuzhu pull origin dev --rebase
+    fi
+    cp -f /monk/qx/*_*.js /scripts
+    
+    # 整点京豆雨
+    echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # 半点京豆雨
+    echo "0 20-23/1 * * * node /scripts/jd_half_redrain.js >> /scripts/logs/jd_half_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # 直播间抽奖（全局）
+    echo "5 8-23/1 * * * node /scripts/jd_live_lottery_social.js >> /scripts/logs/jd_live_lottery_social.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # 删除和lxk重复的脚本
