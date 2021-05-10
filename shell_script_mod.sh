@@ -52,10 +52,10 @@ function monk_diy(){
 function jddj_diy(){
     ## 克隆jddj_diy仓库
     if [ ! -d "/jddj_diy/" ]; then
-        echo "未检查到克隆jd_diy仓库，初始化下载相关脚本..."
+        echo "未检查到克隆jddj_diy仓库，初始化下载相关脚本..."
         git clone -b main https://github.com/717785320/JDDJ.git /jddj_diy
     else
-        echo "更新jd_diy脚本相关文件..."
+        echo "更新jddj_diy脚本相关文件..."
         git -C /jddj_diy reset --hard
         git -C /jddj_diy pull origin main --rebase
     fi
