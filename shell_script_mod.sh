@@ -28,6 +28,7 @@ function jd_diy(){
         git -C /jd_diy reset --hard
         git -C /jd_diy pull origin lxk0301_shell --rebase
     fi
+    cp -f /scripts/logs/jx_cfdtx.js /scripts
     cp -f /jd_diy/scripts/*.js /scripts
 }
 
