@@ -104,6 +104,10 @@ function removeJs(){
     rm -rf /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js /scripts/monk_shop_follow_sku.js
 }
 
+# 替换
+function otherreplace(){
+    sed -i "s/https://gitee.com/l107868382/randomsharecode/raw/master/v1/city.json/https://gitee.com/l107868382/randomsharecode/raw/master/v1/city.json/g" /scripts/jd_city.js
+}
 
 
 function main(){
@@ -113,6 +117,7 @@ function main(){
     longzhuzhu_diy
     removeJs
     diycron
+    otherreplace
 }
 
 main
