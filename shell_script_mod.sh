@@ -106,6 +106,7 @@ function removeJs(){
 
 # 替换
 function otherreplace(){
+    sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
     sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10/https:\/\/gitee.com\/l107868382\/randomsharecode\/raw\/master\/v1\/city.json/g" /scripts/jd_city.js
 }
 
