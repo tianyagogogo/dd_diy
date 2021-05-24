@@ -99,6 +99,23 @@ function longzhuzhu_diy(){
     echo "30 16-23/1 * * * node /scripts/jd_half_redrain.js >> /scripts/logs/jd_half_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
+# yangtingxiao jd_zoo
+function yangtingxiao_diy(){
+    if [ ! -d "/yangtingxiao/" ]; then
+        echo "未检查到longzhuzhu仓库脚本，初始化下载相关脚本..."
+        git clone -b master https://github.com/yangtingxiao/QuantumultX.git /yangtingxiao
+    else
+        echo "更新longzhuzhu脚本相关文件..."
+        git -C /yangtingxiao reset --hard
+        git -C /yangtingxiao pull origin master --rebase
+    fi
+    cp -f /yangtingxiao/scripts/jd/jd_zoo.js /scripts
+    
+    # 动物联萌 618活动
+    echo "5 * * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.log 2>&1" >> /scripts/docker/merged_list_file.sh
+}
+
+
 # 删除和lxk重复的脚本
 function removeJs(){
     rm -rf /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js /scripts/monk_shop_follow_sku.js /scripts/z_city_cash.js
@@ -116,6 +133,7 @@ function main(){
     jd_diy
     monk_diy
     longzhuzhu_diy
+    yangtingxiao_diy
     removeJs
     diycron
     otherreplace
