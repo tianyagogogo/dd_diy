@@ -3,7 +3,7 @@
 
 
 function diycron(){
-    for jsname in /scripts/dust_*.js /scripts/whyour_*.js /scripts/z_*.js /scripts/monk_*.js /scripts/adolf_*.js; do
+    for jsname in /scripts/z_*.js /scripts/monk_*.js /scripts/adolf_*.js; do
         jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
         test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
     done
@@ -125,6 +125,14 @@ function removeJs(){
 function otherreplace(){
     sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
     sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
+    
+    # 注释掉 lxk jd_xtg的启动时间,新建启动时间
+    sed -i "s/jd_xtg.js/jd_xtg_bak.js/g" /scripts/docker/merged_list_file.sh
+    echo "50 5 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
+    sed -i "s/jd_xtg_help.js/jd_xtg_help_bak.js/g" /scripts/docker/merged_list_file.sh
+    echo "0 6 * * * node /scripts/jd_xtg_help.js >> /scripts/logs/jd_xtg_help.log 2>&1" >> /scripts/docker/merged_list_file.sh
+        
 }
 
 
