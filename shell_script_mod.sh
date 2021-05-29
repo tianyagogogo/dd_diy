@@ -139,7 +139,7 @@ function otherreplace(){
 function main(){
     jddj_diy
     jd_diy
-    monk_diy
+    #monk_diy
     longzhuzhu_diy
     removeJs
     diycron
