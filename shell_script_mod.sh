@@ -97,6 +97,8 @@ function longzhuzhu_diy(){
     echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 半点京豆雨
     echo "29 16-23/1 * * * sleep 59; node /scripts/jd_half_redrain.js >> /scripts/logs/jd_half_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # 618主会场红包雨
+    echo "1 20 1-18 6 * node /scripts/long_hby_lottery.js >> /scripts/logs/long_hby_lottery.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # yangtingxiao jd_zoo
