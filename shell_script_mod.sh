@@ -146,7 +146,7 @@ function main(){
     jddj_diy
     jd_diy
     #monk_diy
-    longzhuzhu_diy
+    #longzhuzhu_diy
     yangtingxiao_diy
     removeJs
     diycron
