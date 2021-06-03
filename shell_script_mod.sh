@@ -104,10 +104,10 @@ function longzhuzhu_diy(){
 # yangtingxiao jd_zoo
 function yangtingxiao_diy(){
     if [ ! -d "/yangtingxiao/" ]; then
-        echo "未检查到longzhuzhu仓库脚本，初始化下载相关脚本..."
+        echo "未检查到yangtingxiao仓库脚本，初始化下载相关脚本..."
         git clone -b master https://github.com/yangtingxiao/QuantumultX.git /yangtingxiao
     else
-        echo "更新longzhuzhu脚本相关文件..."
+        echo "更新yangtingxiao脚本相关文件..."
         git -C /yangtingxiao reset --hard
         git -C /yangtingxiao pull origin master --rebase
     fi
