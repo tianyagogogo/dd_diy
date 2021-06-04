@@ -50,6 +50,22 @@ function monk_diy(){
     cp -f /monk/normal/*_*.js /scripts
 }
 
+
+function hyzaw_diy(){
+    ## 克隆hyzawr仓库
+    if [ ! -d "/hyzaw/" ]; then
+        echo "未检查到hyzaw仓库脚本，初始化下载相关脚本..."
+        #git clone -b monk https://github.com/l107868382/dd_syc.git /monk
+        git clone -b main https://github.com/hyzaw/scripts.git /hyzaw
+        
+    else
+        echo "更新hyzawr脚本相关文件..."
+        git -C /hyzaw reset --hard
+        git -C /hyzaw pull origin main --rebase
+    fi
+    cp -f /hyzaw/*_*.js /scripts
+}
+
 function jddj_diy(){
     ## 克隆jddj_diy仓库
     if [ ! -d "/jddj_diy/" ]; then
@@ -148,6 +164,7 @@ function main(){
     # monk_diy
     # longzhuzhu_diy
     # yangtingxiao_diy
+    hyzaw_diy
     removeJs
     diycron
     otherreplace
