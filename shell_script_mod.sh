@@ -94,7 +94,7 @@ function longzhuzhu_diy(){
     cp -f /longzhuzhu/qx/*_*.js /scripts
     
     # 整点京豆雨
-    echo "1 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 半点京豆雨
     echo "29 16-23/1 * * * sleep 59; node /scripts/jd_half_redrain.js >> /scripts/logs/jd_half_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 618主会场红包雨
