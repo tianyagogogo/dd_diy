@@ -3,7 +3,7 @@
 
 
 function diycron(){
-    for jsname in /scripts/z_*.js /scripts/monk_*.js /scripts/adolf_*.js; do
+    for jsname in /scripts/z_*.js /scripts/monk_*.js /scripts/adolf_*.js /scripts/ddo_*.js; do
         jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
         test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
     done
