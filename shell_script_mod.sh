@@ -115,14 +115,11 @@ function yangtingxiao_diy(){
 
 # 删除和lxk重复的脚本
 function removeJs(){
-    rm -rf /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js /scripts/monk_shop_follow_sku.js /scripts/z_city_cash.js /scripts/z_carnivalcity.js /scripts/adolf_star.js /scripts/ddo_joy_reward.js
+    rm -rf /scripts/ddo_joy_reward.js
 }
 
 # 替换
 function otherreplace(){
-    sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
-    sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
-    
     # 注释掉 lxk jd_xtg的启动时间,新建启动时间
     sed -i "s/jd_xtg.js/jd_xtg_bak.js/g" /scripts/docker/merged_list_file.sh
     echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
@@ -130,8 +127,11 @@ function otherreplace(){
     echo "0 6 * * * node /scripts/jd_xtg_help.js >> /scripts/logs/jd_xtg_help.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     # 重新设置手机狂欢城的启动时间---
-    sed -i "s/jd_carnivalcity.js/jd_carnivalcity_bak.js/g" /scripts/docker/merged_list_file.sh
-    echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #sed -i "s/jd_carnivalcity.js/jd_carnivalcity_bak.js/g" /scripts/docker/merged_list_file.sh
+    #echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
+    #sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
+    
     
         
 }
