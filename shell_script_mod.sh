@@ -82,13 +82,15 @@ function jddj_diy(){
     echo $ip
     result= $(echo $ip | grep "43.129")
     echo $result
-    if [ "$result" != "" ]; then
-        rm -rf /jddj_diy/sendNotify.js
-        cp -f /jddj_diy/*.js /scripts
-        cp -f /scripts/logs/jddj_cookie.js /scripts
-     else 
-        echo '非l107868382服务器，不复制个性化代码'
+    if [[  "$result" != "" ]]
+    then
+      rm -rf /jddj_diy/sendNotify.js
+      cp -f /jddj_diy/*.js /scripts
+      cp -f /scripts/logs/jddj_cookie.js /scripts
+    else
+      echo "非l107868382服务器，不复制个性化代码"
     fi
+
     
 }
 
