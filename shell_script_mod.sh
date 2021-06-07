@@ -78,9 +78,10 @@ function jddj_diy(){
     fi
     
     # 判断外网IP
-    alias myip='curl icanhazip.com'
-    myip
-    result= $(echo myip | grep "43.129")
+    curl icanhazip.com > ./ipstr.txt
+    iptxt=$(tail -1 ./ipstr.txt)
+    echo $iptxt
+    result= $(echo $iptxt | grep "43.129")
     echo $result
     if [[  "$result" != "" ]]
     then
