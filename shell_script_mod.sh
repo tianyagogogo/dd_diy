@@ -80,8 +80,8 @@ function jddj_diy(){
     # 判断外网IP
     curl icanhazip.com > ./ipstr.txt
     iptxt=$(tail -1 ./ipstr.txt)
-    echo $iptxt
-    if [[ $iptxt =~ "43.129" ]]
+    ipbd="43.129"
+    if [[ $iptxt == $B* ]]
     then
       echo "l107868382服务器，复制个性化代码"
       rm -rf /jddj_diy/sendNotify.js
