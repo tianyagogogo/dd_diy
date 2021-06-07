@@ -77,10 +77,17 @@ function jddj_diy(){
         git -C /jddj_diy pull origin main --rebase
     fi
     
-    rm -rf /jddj_diy/sendNotify.js
-    cp -f /jddj_diy/*.js /scripts
-    cp -f /scripts/logs/jddj_cookie.js /scripts
-
+    # 判断外网IP
+    ip = 'curl icanhazip.com'
+    echo $ip
+    result= $(echo $ip | grep "43.129")
+    echo $result
+    if [[ "$result" != "" ]] then 
+        rm -rf /jddj_diy/sendNotify.js
+        cp -f /jddj_diy/*.js /scripts
+        cp -f /scripts/logs/jddj_cookie.js /scripts
+    fi
+    
 }
 
 # 下载龙猪猪 红包雨脚本
