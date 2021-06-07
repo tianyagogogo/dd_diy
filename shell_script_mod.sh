@@ -81,10 +81,9 @@ function jddj_diy(){
     curl icanhazip.com > ./ipstr.txt
     iptxt=$(tail -1 ./ipstr.txt)
     echo $iptxt
-    result= $(echo $iptxt | grep "43.129")
-    echo $result
-    if [[  "$result" != "" ]]
+    if [[ $iptxt =~ "43.129" ]]
     then
+      echo "l107868382服务器，复制个性化代码"
       rm -rf /jddj_diy/sendNotify.js
       cp -f /jddj_diy/*.js /scripts
       cp -f /scripts/logs/jddj_cookie.js /scripts
