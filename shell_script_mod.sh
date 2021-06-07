@@ -3,7 +3,7 @@
 
 
 function diycron(){
-    for jsname in /scripts/z_*.js /scripts/monk_*.js /scripts/adolf_*.js /scripts/ddo_*.js /scripts/jddj_*.js; do
+    for jsname in /scripts/z_*.js /scripts/monk_*.js /scripts/adolf_*.js /scripts/ddo_*.js /scripts/jddj_*.js /scripts/long_*.js; do
         jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
         test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
     done
@@ -80,41 +80,20 @@ function jddj_diy(){
     rm -rf /jddj_diy/sendNotify.js
     cp -f /jddj_diy/*.js /scripts
     cp -f /scripts/logs/jddj_cookie.js /scripts
-    
-    #京东到家鲜豆任务脚本
-    #echo "10 8 * * * node /scripts/jddj_bean.js >> /scripts/logs/jddj_bean.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
-    #京东到家果园任务脚本
-    #echo "10 8,11,17 * * * node /scripts/jddj_fruit.js >> /scripts/logs/jddj_fruit.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
-    # 京东到家果园水车收水滴任务脚本
-    #echo "15 0,8,11,17 * * * node /scripts/jddj_fruit_collectWater.js >> /scripts/logs/jddj_fruit_collectWater.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
-    #京东到家鲜豆庄园收水滴脚本
-    #echo "*/20 * * * * node /scripts/jddj_getPoints.js >> /scripts/logs/jddj_getPoints.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
-    #京东到家鲜豆庄园脚本
-    #echo "15 8 * * * node /scripts/jddj_plantBeans.js >> /scripts/logs/jddj_plantBeans.log 2>&1" >> /scripts/docker/merged_list_file.sh 
+
 }
 
 # 下载龙猪猪 红包雨脚本
 function longzhuzhu_diy(){
     if [ ! -d "/longzhuzhu/" ]; then
         echo "未检查到longzhuzhu仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://github.com/nianyuguai/longzhuzhu.git /longzhuzhu
+        git clone -b main https://github.com/longzhuzhu/nianyu.git /longzhuzhu
     else
         echo "更新longzhuzhu脚本相关文件..."
         git -C /longzhuzhu reset --hard
         git -C /longzhuzhu pull origin main --rebase
     fi
     cp -f /longzhuzhu/qx/*_*.js /scripts
-    
-    # 整点京豆雨
-    echo "0 0-23/1 * * * node /scripts/jd_super_redrain.js >> /scripts/logs/jd_super_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # 半点京豆雨
-    echo "29 16-23/1 * * * sleep 59; node /scripts/jd_half_redrain.js >> /scripts/logs/jd_half_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # 618主会场红包雨
-    echo "1 20 1-18 6 * node /scripts/long_hby_lottery.js >> /scripts/logs/long_hby_lottery.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # yangtingxiao jd_zoo
