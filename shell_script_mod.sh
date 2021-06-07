@@ -136,7 +136,7 @@ function yangtingxiao_diy(){
 
 # 删除和lxk重复的脚本
 function removeJs(){
-    rm -rf /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js /scripts/monk_shop_follow_sku.js /scripts/z_city_cash.js /scripts/z_carnivalcity.js /scripts/adolf_star.js
+    rm -rf /scripts/z_marketLottery.js /scripts/z_entertainment.js /scripts/monk_skyworth_car.js /scripts/z_tcl_lining.js /scripts/z_super5g.js /scripts/monk_shop_follow_sku.js /scripts/z_city_cash.js /scripts/z_carnivalcity.js /scripts/adolf_star.js /scripts/ddo_joy_reward.js
 }
 
 # 替换
