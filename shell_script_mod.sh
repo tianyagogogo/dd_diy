@@ -82,7 +82,7 @@ function jddj_diy(){
     echo $ip
     result= $(echo $ip | grep "43.129")
     echo $result
-    if [[ "$result" != "" ]] then 
+    if [ "$result" != "" ]; then
         rm -rf /jddj_diy/sendNotify.js
         cp -f /jddj_diy/*.js /scripts
         cp -f /scripts/logs/jddj_cookie.js /scripts
