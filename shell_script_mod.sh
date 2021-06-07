@@ -81,15 +81,15 @@ function jddj_diy(){
     curl icanhazip.com > ./ipstr.txt
     iptxt=$(tail -1 ./ipstr.txt)
     ipbd="43.129"
-    if [[ "$iptxt" == "*$ipbd*" ]]
-    then
-      echo "l107868382服务器，复制个性化代码"
+    #if [[ "$iptxt" == "*$ipbd*" ]]
+    #then
+      #echo "l107868382服务器，复制个性化代码"
       rm -rf /jddj_diy/sendNotify.js
       cp -f /jddj_diy/*.js /scripts
       cp -f /scripts/logs/jddj_cookie.js /scripts
-    else
-      echo "非l107868382服务器，不复制个性化代码"
-    fi
+    #else
+      #echo "非l107868382服务器，不复制个性化代码"
+    #fi
 
     
 }
