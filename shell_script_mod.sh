@@ -123,6 +123,23 @@ function yangtingxiao_diy(){
 }
 
 
+# 京喜牧场
+function moposmall_diy(){
+     if [ ! -d "/moposmall/" ]; then
+        echo "未检查到moposmall仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://github.com/moposmall/Script.git /moposmall
+    else
+        echo "更新moposmall脚本相关文件..."
+        git -C /moposmall reset --hard
+        git -C /moposmall pull origin main --rebase
+    fi
+    cp -f /moposmall/Me/jx_mc.js /scripts
+    
+    # 京喜牧场
+    echo "0 0 * * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1" >> /scripts/docker/merged_list_file.sh
+
+}
+
 # 删除和lxk重复的脚本
 function removeJs(){
     rm -rf /scripts/ddo_joy_reward.js
@@ -154,6 +171,7 @@ function main(){
     longzhuzhu_diy
     # yangtingxiao_diy
     hyzaw_diy
+    moposmall_diy
     removeJs
     diycron
     otherreplace
