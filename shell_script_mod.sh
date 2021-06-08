@@ -75,22 +75,12 @@ function jddj_diy(){
         echo "更新jddj_diy脚本相关文件..."
         git -C /jddj_diy reset --hard
         git -C /jddj_diy pull origin main --rebase
-    fi
+    fi  
     
-    # 判断外网IP
-    curl icanhazip.com > ./ipstr.txt
-    iptxt=$(tail -1 ./ipstr.txt)
-    ipbd="43.129"
-    result=$(echo $iptxt | grep "${ipbd}")
-    if [[ "$result" != "" ]]
-    then
-      echo "l107服务器，复制个性化代码"
-      rm -rf /jddj_diy/sendNotify.js
-      cp -f /jddj_diy/*.js /scripts
-      cp -f /scripts/logs/jddj_cookie.js /scripts
-    else
-      echo "非l107服务器，不复制个性化代码"
-    fi
+       rm -rf /jddj_diy/sendNotify.js
+       cp -f /jddj_diy/*.js /scripts
+       cp -f /scripts/logs/jddj_cookie.js /scripts
+  
 }
 
 # 下载龙猪猪 红包雨脚本
@@ -165,8 +155,7 @@ function otherreplace(){
 
 
 function main(){
-    jddj_diy
-    jd_diy
+
     # monk_diy
     longzhuzhu_diy
     # yangtingxiao_diy
@@ -175,6 +164,23 @@ function main(){
     removeJs
     diycron
     otherreplace
+    
+    
+     # 判断外网IP,运行自己的代码
+    curl icanhazip.com > ./ipstr.txt
+    iptxt=$(tail -1 ./ipstr.txt)
+    ipbd="43.129"
+    result=$(echo $iptxt | grep "${ipbd}")
+    if [[ "$result" != "" ]]
+    then
+      echo "l107服务器，复制个性化代码"
+      # 自己diy代码
+      jd_diy
+      # 京东到家
+      jddj_diy
+    else
+      echo "非l107服务器，不复制个性化代码"
+    fi
 }
 
 main
