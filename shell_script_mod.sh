@@ -161,12 +161,8 @@ function main(){
     # yangtingxiao_diy
     hyzaw_diy
     moposmall_diy
-    removeJs
-    diycron
-    otherreplace
     
-    
-     # 判断外网IP,运行自己的代码
+    # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
     iptxt=$(tail -1 ./ipstr.txt)
     ipbd="43.129"
@@ -181,6 +177,10 @@ function main(){
     else
       echo "非l107服务器，不执行个性化代码---------------------------------------------------"
     fi
+    
+    removeJs
+    diycron
+    otherreplace
 }
 
 main
