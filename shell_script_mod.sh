@@ -161,8 +161,8 @@ function main(){
 
     # monk_diy
     longzhuzhu_diy
-    # yangtingxiao_diy
-    hyzaw_diy
+    #yangtingxiao_diy
+    #hyzaw_diy
     #moposmall_diy
     
     # 判断外网IP,运行自己的代码
