@@ -15,7 +15,6 @@ function diycron(){
    
     # 京喜财富岛提现
     echo "59 23 * * * sleep 59.9; node /scripts/jx_cfdtx.js >> /scripts/logs/jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
 }
 
 function jd_diy(){
@@ -32,23 +31,6 @@ function jd_diy(){
     cp -f /jd_diy/scripts/*.js /scripts
 }
 
-function monk_diy(){
-    ## 克隆monk-coder仓库
-    if [ ! -d "/monk/" ]; then
-        echo "未检查到monk-coder仓库脚本，初始化下载相关脚本..."
-        #git clone -b monk https://github.com/l107868382/dd_syc.git /monk
-        git clone -b dust https://github.com/monk-coder/dust.git /monk
-        
-    else
-        echo "更新monk-coder脚本相关文件..."
-        git -C /monk reset --hard
-        git -C /monk pull origin dust --rebase
-    fi
-    cp -f /monk/car/*_*.js /scripts
-    cp -f /monk/i-chenzhe/*_*.js /scripts
-    cp -f /monk/member/*_*.js /scripts
-    cp -f /monk/normal/*_*.js /scripts
-}
 
 
 function hyzaw_diy(){
@@ -76,7 +58,6 @@ function jddj_diy(){
         git -C /jddj_diy reset --hard
         git -C /jddj_diy pull origin main --rebase
     fi  
-    
        rm -rf /jddj_diy/sendNotify.js
        cp -f /jddj_diy/*.js /scripts
        cp -f /scripts/logs/jddj_cookie.js /scripts
@@ -151,15 +132,25 @@ function otherreplace(){
     #echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
     #sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
     #sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
-    
-    
-        
 }
 
 
-function main(){
 
-    # monk_diy
+# 下载lxk 备份
+function lxk_diy(){
+    if [ ! -d "/lxk/" ]; then
+        echo "未检查到lxk仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://github.com/longzhuzhu/nianyu.git /lxk
+    else
+        echo "更新lxk脚本相关文件..."
+        git -C /lxk reset --hard
+        git -C /lxk pull origin main --rebase
+    fi
+    cp -f /lxk/*_*.js /scripts
+}
+
+function main(){
+    lxk_diy
     longzhuzhu_diy
     #yangtingxiao_diy
     #hyzaw_diy
