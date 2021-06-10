@@ -140,11 +140,11 @@ function otherreplace(){
 function lxk_diy(){
     if [ ! -d "/lxk/" ]; then
         echo "未检查到lxk仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://github.com/longzhuzhu/nianyu.git /lxk
+        git clone -b dd https://github.com/l107868382/ddnaichai.git /lxk
     else
         echo "更新lxk脚本相关文件..."
         git -C /lxk reset --hard
-        git -C /lxk pull origin main --rebase
+        git -C /lxk pull origin dd --rebase
     fi
     cp -f /lxk/*_*.js /scripts
 }
