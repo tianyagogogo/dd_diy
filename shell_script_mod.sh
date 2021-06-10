@@ -170,8 +170,7 @@ function main(){
       jddj_diy
     else
       echo "非l107服务器，不执行个性化代码---------------------------------------------------"
-    fi
-    
+    fi    
     removeJs
     diycron
     otherreplace
