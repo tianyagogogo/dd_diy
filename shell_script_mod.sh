@@ -150,7 +150,7 @@ function lxk_diy(){
 }
 
 function main(){
-    lxk_diy
+    #lxk_diy
     longzhuzhu_diy
     yangtingxiao_diy
     #hyzaw_diy
