@@ -87,10 +87,10 @@ function yangtingxiao_diy(){
         git -C /yangtingxiao reset --hard
         git -C /yangtingxiao pull origin master --rebase
     fi
-    cp -f /yangtingxiao/scripts/jd/jd_starStore.js /scripts
+    cp -f /yangtingxiao/scripts/jd/jd_zoo.js.js /scripts
     
-    # 京东星店长
-    echo "5 9 * * * node /scripts/jd_starStore.js >> /scripts/logs/jd_starStore.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # 动物联萌 618活动
+    echo "5 * * * * node /scripts/jd_zoo.js.js >> /scripts/logs/jd_zoo.js.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 
