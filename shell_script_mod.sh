@@ -14,7 +14,7 @@ function diycron(){
     echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
    
     # 京喜财富岛提现
-    echo "59 23 * * * sleep 59.9; node /scripts/jx_cfdtx.js >> /scripts/logs/jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "59 23 * * * sleep 55; node /scripts/jx_cfdtx.js >> /scripts/logs/jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 function jd_diy(){
