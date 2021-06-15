@@ -104,7 +104,7 @@ function wuzhi_diy(){
         git -C /wuzhi reset --hard
         git -C /wuzhi pull origin main --rebase
     fi
-    cp -f /wuzhi/jd_zoo.js jd_zooCollect.js /scripts
+    cp -f /wuzhi/jd_zoo.js /wuzhi/jd_zooCollect.js /scripts
 }
 
 
