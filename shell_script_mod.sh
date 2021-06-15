@@ -3,7 +3,7 @@
 
 
 function diycron(){
-    for jsname in /scripts/ddo_*.js /scripts/jddj_*.js /scripts/long_*.js; do
+    for jsname in /scripts/ddo_*.js /scripts/jddj_*.js /scripts/long_*.js /scripts/zoo*.js; do
         jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
         test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
     done
@@ -94,7 +94,7 @@ function yangtingxiao_diy(){
 }
 
 
-# yangtingxiao jd_zoo
+# wuzhi_diy
 function wuzhi_diy(){
     if [ ! -d "/wuzhi/" ]; then
         echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
@@ -107,7 +107,18 @@ function wuzhi_diy(){
     cp -f /wuzhi/jd_zoo.js /wuzhi/jd_zooCollect.js /wuzhi/ZooFaker.js /scripts
 }
 
-
+# zooPanda
+function zooPanda_diy(){
+    if [ ! -d "/zooPanda/" ]; then
+        echo "未检查到zooPanda仓库脚本，初始化下载相关脚本..."
+        git clone -b dev https://github.com/zooPanda/zoo.git /zooPanda
+    else
+        echo "更新zooPanda脚本相关文件..."
+        git -C /zooPanda reset --hard
+        git -C /zooPanda pull origin dev --rebase
+    fi
+    cp -f /zooPanda/zoo*.js /scripts
+}
 
 # 京喜牧场
 function moposmall_diy(){
@@ -166,8 +177,9 @@ function lxk_diy(){
 
 function main(){
     #lxk_diy
-    longzhuzhu_diy
     wuzhi_diy
+    longzhuzhu_diy
+    zooPanda_diy
     #hyzaw_diy
     #moposmall_diy
     
