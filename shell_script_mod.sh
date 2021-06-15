@@ -94,6 +94,21 @@ function yangtingxiao_diy(){
 }
 
 
+# yangtingxiao jd_zoo
+function wuzhi_diy(){
+    if [ ! -d "/wuzhi/" ]; then
+        echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://github.com/wuzhi04/MyActions.git /wuzhi
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /wuzhi reset --hard
+        git -C /wuzhi pull origin main --rebase
+    fi
+    cp -f /wuzhi/jd_zoo.js jd_zooCollect.js /scripts
+}
+
+
+
 # 京喜牧场
 function moposmall_diy(){
      if [ ! -d "/moposmall/" ]; then
@@ -152,7 +167,7 @@ function lxk_diy(){
 function main(){
     #lxk_diy
     longzhuzhu_diy
-    yangtingxiao_diy
+    wuzhi_diy
     #hyzaw_diy
     #moposmall_diy
     
