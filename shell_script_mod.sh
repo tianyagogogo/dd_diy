@@ -58,10 +58,9 @@ function jddj_diy(){
         git -C /jddj_diy reset --hard
         git -C /jddj_diy pull origin main --rebase
     fi  
-       rm -rf /jddj_diy/sendNotify.js
-       cp -f /jddj_diy/*.js /scripts
+       #rm -rf /jddj_diy/sendNotify.js
+       cp -f /jddj_diy/jddj_*.js /scripts
        cp -f /scripts/logs/jddj_cookie.js /scripts
-  
 }
 
 # 下载龙猪猪 红包雨脚本
@@ -137,8 +136,25 @@ function moposmall_diy(){
     
     # 京喜牧场
     echo "0 0 * * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1" >> /scripts/docker/merged_list_file.sh
-
 }
+
+# star261
+function star261_diy(){
+     if [ ! -d "/star261/" ]; then
+        echo "未检查到star261仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://github.com/star261/jd.git /star261
+    else
+        echo "更新star261脚本相关文件..."
+        git -C /star261 reset --hard
+        git -C /star261 pull origin main --rebase
+    fi
+    cp -f /star261/scripts/*.js /scripts
+    for jsname in /star261/scripts/*.js; do
+        jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
+        test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
+     done
+}
+
 
 # 删除和lxk重复的脚本
 function removeJs(){
@@ -165,6 +181,8 @@ function otherreplace(){
 
 
 
+
+
 # 下载lxk 备份
 function lxk_diy(){
     if [ ! -d "/lxk/" ]; then
@@ -183,6 +201,7 @@ function main(){
     wuzhi_diy
     longzhuzhu_diy
     zooPanda_diy
+    star261
     #hyzaw_diy
     #moposmall_diy
     
