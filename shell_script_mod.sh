@@ -120,6 +120,8 @@ function zooPanda_diy(){
     echo "11 9 1-18 6 * node /scripts/zooOpencard06.js >> /scripts/logs/zooOpencard06.log 2>&1" >> /scripts/docker/merged_list_file.sh
     echo "11 9 1-18 6 * node /scripts/zooOpencard07.js >> /scripts/logs/zooOpencard07.log 2>&1" >> /scripts/docker/merged_list_file.sh
     echo "11 9 1-18 6 * node /scripts/zooOpencard08.js >> /scripts/logs/zooOpencard08.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "11 10 * * * node /scripts/zooElecsport.js >> /scripts/logs/zooElecsport.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
 }
 
 # 京喜牧场
