@@ -201,7 +201,7 @@ function main(){
     wuzhi_diy
     longzhuzhu_diy
     zooPanda_diy
-    star261
+    star261_diy
     #hyzaw_diy
     #moposmall_diy
     
