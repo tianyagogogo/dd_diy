@@ -149,10 +149,7 @@ function star261_diy(){
         git -C /star261 pull origin main --rebase
     fi
     cp -f /star261/scripts/*.js /scripts
-    for jsname in /star261/scripts/*.js; do
-        jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
-        test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
-     done
+
 }
 
 
