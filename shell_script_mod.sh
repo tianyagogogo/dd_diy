@@ -175,6 +175,11 @@ function otherreplace(){
     
     # 重新设置手机狂欢城的启动时间---
     sed -i "s/jd_carnivalcity.js/jd_carnivalcity_bak.js/g" /scripts/docker/merged_list_file.sh
+    sed -i "s/jd_zoo.js/jd_zoo_bak.js/g" /scripts/docker/merged_list_file.sh
+    sed -i "s/jd_zooCollect.js/jd_zooCollect_bak.js/g" /scripts/docker/merged_list_file.sh
+    sed -i "s/jd_star_shop.js/jd_star_shop_bak.js/g" /scripts/docker/merged_list_file.sh
+    sed -i "s/jd_mcxhd.js/jd_mcxhd_bak.js/g" /scripts/docker/merged_list_file.sh
+    
     # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
     # sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
