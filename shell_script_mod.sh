@@ -162,6 +162,7 @@ function removeJs(){
 
 # 替换
 function otherreplace(){
+    echo " otherreplace "
     # 注释掉 lxk jd_xtg的启动时间,新建启动时间
     #sed -i "s/jd_xtg.js/jd_xtg_bak.js/g" /scripts/docker/merged_list_file.sh
     #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
