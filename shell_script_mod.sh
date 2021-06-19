@@ -29,6 +29,7 @@ function jd_diy(){
     fi
     cp -f /scripts/logs/jdJxncTokens.js /scripts
     cp -f /jd_diy/scripts/*.js /scripts
+    cp -f /jd_diy/docker/crontab_list.sh /scripts/docker
 }
 
 
@@ -137,7 +138,7 @@ function moposmall_diy(){
     cp -f /moposmall/Me/jx_mc.js /scripts
     
     # 京喜牧场
-    echo "0 0 * * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "10 0,12,22 * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # star261
@@ -177,6 +178,8 @@ function otherreplace(){
     # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
     # sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
+
+    
 }
 
 
