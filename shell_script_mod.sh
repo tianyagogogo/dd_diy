@@ -221,7 +221,7 @@ function main(){
     fi    
     removeJs
     diycron
-    otherreplace
+    # otherreplace
 }
 
 main
