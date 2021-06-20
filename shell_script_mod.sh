@@ -168,7 +168,7 @@ function otherreplace(){
     sed -i "s/jd_xtg.js/jd_xtg_bak.js/g" /scripts/docker/merged_list_file.sh
     #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
     sed -i "s/jd_xtg_help.js/jd_xtg_help_bak.js/g" /scripts/docker/merged_list_file.sh
-    sed -i "s/https:\/\/cdn.jsdelivr.net\/gh\/gitupdate\/updateTeam@master\/shareCodes\/jxhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxhb.json/g" /scripts/docker/merged_list_file.sh
+    sed -i "s/https:\/\/cdn.jsdelivr.net\/gh\/gitupdate\/updateTeam@master\/shareCodes\/jxhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxhb.json/g" /scripts/jd_jxlhb.js
     
     
     #echo "0 6 * * * node /scripts/jd_xtg_help.js >> /scripts/logs/jd_xtg_help.log 2>&1" >> /scripts/docker/merged_list_file.sh
