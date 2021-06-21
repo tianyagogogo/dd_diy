@@ -15,6 +15,10 @@ function diycron(){
     # 京喜财富岛提现
     echo "59 23 * * * sleep 59; node /scripts/jx_cfdtx.js >> /scripts/logs/jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
+    #收集助力码
+    echo "30 * * * * sh +x /scripts/docker/auto_help.sh collect |ts >> /scripts/logs/auto_help_collect.log 2>&1" >> /scripts/docker/merged_list_file.sh
+
+    
 }
 
 function jd_diy(){
@@ -99,9 +103,6 @@ function otherreplace(){
 }
 
 
-
-
-
 # 下载lxk 备份
 function lxk_diy(){
     if [ ! -d "/lxk/" ]; then
@@ -116,6 +117,8 @@ function lxk_diy(){
 }
 
 function main(){
+    cat /dev/null > /scripts/crontab_list.sh
+    cat /dev/null > /scripts/merged_list_file.sh
     wuzhi_diy
     
     # 判断外网IP,运行自己的代码
