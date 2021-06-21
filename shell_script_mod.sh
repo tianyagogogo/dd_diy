@@ -69,6 +69,7 @@ function wuzhi_diy(){
     cp -f /wuzhi/*.js /scripts
     cat /dev/null > /scripts/docker/merged_list_file.sh
     cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
+    sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
 }
 
 
@@ -82,13 +83,7 @@ function otherreplace(){
     #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
     sed -i "s/jd_xtg_help.js/jd_xtg_help_bak.js/g" /scripts/docker/merged_list_file.sh
     sed -i "s/https:\/\/cdn.jsdelivr.net\/gh\/gitupdate\/updateTeam@master\/shareCodes\/jxhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxhb.json/g" /scripts/jd_jxlhb.js
-    
-    
-    #echo "0 6 * * * node /scripts/jd_xtg_help.js >> /scripts/logs/jd_xtg_help.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # 替换 超级直播间红包雨
-    #sed -i "s/jd_live_redrain.js/jd_live_redrain_bak.js/g" /scripts/docker/merged_list_file.sh
-    #echo "1,31 0-23/1 * * * sleep 15; node /scripts/jd_live_redrain.js >> /scripts/logs/jd_live_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
+        
     # 重新设置手机狂欢城的启动时间---
     sed -i "s/jd_carnivalcity.js/jd_carnivalcity_bak.js/g" /scripts/docker/merged_list_file.sh
     sed -i "s/jd_zoo.js/jd_zoo_bak.js/g" /scripts/docker/merged_list_file.sh
@@ -104,21 +99,10 @@ function otherreplace(){
 }
 
 
-# 下载lxk 备份
-function lxk_diy(){
-    if [ ! -d "/lxk/" ]; then
-        echo "未检查到lxk仓库脚本，初始化下载相关脚本..."
-        git clone -b dd https://github.com/l107868382/ddnaichai.git /lxk
-    else
-        echo "更新lxk脚本相关文件..."
-        git -C /lxk reset --hard
-        git -C /lxk pull origin dd --rebase
-    fi
-    cp -f /lxk/*_*.js /scripts
-}
-
 function main(){
     wuzhi_diy
+    # 京东到家
+    jddj_diy
     
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
@@ -128,10 +112,7 @@ function main(){
     if [[ "$result" != "" ]]
     then
       echo "l107服务器，执行性化代码--------------------------------------------------------"
-      # 自己diy代码
       jd_diy
-      # 京东到家
-      jddj_diy
     else
       echo "非l107服务器，不执行个性化代码---------------------------------------------------"
     fi    
@@ -141,6 +122,4 @@ function main(){
 
 main
 
-## 拷贝京东超市兑换脚本
-# cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
