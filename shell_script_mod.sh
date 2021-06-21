@@ -51,20 +51,6 @@ function jddj_diy(){
        cp -f /scripts/logs/jddj_cookie.js /scripts
 }
 
-# 下载龙猪猪 红包雨脚本
-function longzhuzhu_diy(){
-    if [ ! -d "/longzhuzhu/" ]; then
-        echo "未检查到longzhuzhu仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://github.com/longzhuzhu/nianyu.git /longzhuzhu
-    else
-        echo "更新longzhuzhu脚本相关文件..."
-        git -C /longzhuzhu reset --hard
-        git -C /longzhuzhu pull origin main --rebase
-    fi
-    cp -f /longzhuzhu/qx/*_*.js /scripts
-}
-
-
 
 # wuzhi_diy
 function wuzhi_diy(){
@@ -76,13 +62,8 @@ function wuzhi_diy(){
         git -C /wuzhi reset --hard
         git -C /wuzhi pull origin main --rebase
     fi
-    cp -f /wuzhi/jd_necklace.js /wuzhi/jd_djjl.js /scripts
+    cp -f /wuzhi/*.js /scripts
     
-    
-    # 电竞经理
-    echo "20 10 * * * node /scripts/jd_djjl.js >> /scripts/logs/jd_djjl.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # 点点券
-    echo "20 0,20 * * * node /scripts/jd_necklace.js >> /scripts/logs/jd_necklace.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # zooPanda
@@ -116,13 +97,6 @@ function moposmall_diy(){
     
 }
 
-
-
-
-# 删除和lxk重复的脚本
-function removeJs(){
-    rm -rf /scripts/ddo_joy_reward.js
-}
 
 # 替换
 function otherreplace(){
@@ -188,7 +162,6 @@ function main(){
     else
       echo "非l107服务器，不执行个性化代码---------------------------------------------------"
     fi    
-    removeJs
     diycron
     otherreplace
 }
@@ -196,6 +169,5 @@ function main(){
 main
 
 ## 拷贝京东超市兑换脚本
-#cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 # cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
