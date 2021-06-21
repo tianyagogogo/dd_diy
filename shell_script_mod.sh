@@ -67,8 +67,10 @@ function wuzhi_diy(){
         git -C /wuzhi pull origin main --rebase
     fi
     cp -f /wuzhi/*.js /scripts
+    cat /dev/null > /scripts/docker/merged_list_file.sh
+    cat /dev/null > /scripts/docker/crontab_list.sh
     cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
-
+    cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/crontab_list.sh
 }
 
 
@@ -118,10 +120,6 @@ function lxk_diy(){
 }
 
 function main(){
-    cat /dev/null > /scripts/docker/crontab_list.sh
-    cat /dev/null > /scripts/docker/merged_list_file.sh
-    
-
     wuzhi_diy
     
     # 判断外网IP,运行自己的代码
