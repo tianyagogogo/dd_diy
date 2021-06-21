@@ -171,13 +171,7 @@ function lxk_diy(){
 }
 
 function main(){
-    #lxk_diy
     wuzhi_diy
-    longzhuzhu_diy
-    zooPanda_diy
-    #star261_diy
-    #hyzaw_diy
-    moposmall_diy
     
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
@@ -205,52 +199,3 @@ main
 #cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 # cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
-/*  
-function yangtingxiao_diy(){
-    if [ ! -d "/yangtingxiao/" ]; then
-        echo "未检查到yangtingxiao仓库脚本，初始化下载相关脚本..."
-        git clone -b master https://github.com/yangtingxiao/QuantumultX.git /yangtingxiao
-    else
-        echo "更新yangtingxiao脚本相关文件..."
-        git -C /yangtingxiao reset --hard
-        git -C /yangtingxiao pull origin master --rebase
-    fi
-    cp -f /yangtingxiao/scripts/jd/jd_zoo.js /scripts
-    
-    # 动物联萌 618活动
-    echo "5 * * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.js.log 2>&1" >> /scripts/docker/merged_list_file.sh
-}
-
-
-# star261
-function star261_diy(){
-     if [ ! -d "/star261/" ]; then
-        echo "未检查到star261仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://github.com/star261/jd.git /star261
-    else
-        echo "更新star261脚本相关文件..."
-        git -C /star261 reset --hard
-        git -C /star261 pull origin main --rebase
-    fi
-    cp -f /star261/scripts/*.js /scripts
-
-}
-
-function hyzaw_diy(){
-    ## 克隆hyzawr仓库
-    if [ ! -d "/hyzaw/" ]; then
-        echo "未检查到hyzaw仓库脚本，初始化下载相关脚本..."
-        #git clone -b monk https://github.com/l107868382/dd_syc.git /monk
-        git clone -b main https://github.com/hyzaw/scripts.git /hyzaw
-        
-    else
-        echo "更新hyzawr脚本相关文件..."
-        git -C /hyzaw reset --hard
-        git -C /hyzaw pull origin main --rebase
-    fi
-    cp -f /hyzaw/*_*.js /scripts
-}
-
-
-
-*/
