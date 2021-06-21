@@ -63,39 +63,10 @@ function wuzhi_diy(){
         git -C /wuzhi pull origin main --rebase
     fi
     cp -f /wuzhi/*.js /scripts
-    
+    cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
 }
 
-# zooPanda
-function zooPanda_diy(){
-    if [ ! -d "/zooPanda/" ]; then
-        echo "未检查到zooPanda仓库脚本，初始化下载相关脚本..."
-        git clone -b dev https://github.com/zooPanda/zoo.git /zooPanda
-    else
-        echo "更新zooPanda脚本相关文件..."
-        git -C /zooPanda reset --hard
-        git -C /zooPanda pull origin dev --rebase
-    fi    
-}
 
-# 京喜牧场
-function moposmall_diy(){
-     if [ ! -d "/moposmall/" ]; then
-        echo "未检查到moposmall仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://github.com/moposmall/Script.git /moposmall
-    else
-        echo "更新moposmall脚本相关文件..."
-        git -C /moposmall reset --hard
-        git -C /moposmall pull origin main --rebase
-    fi
-    cp -f /moposmall/Me/jx_mc.js /scripts
-    
-    # 京喜牧场
-    echo "10 0,12,22 * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    echo "15 0/3 * * * node /scripts/jx_mc_coin.js >> /scripts/logs/jx_mc_coin.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    echo "30 12 * * * node /scripts/jx_mc_emptycabbage.js >> /scripts/logs/jx_mc_emptycabbage.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
-}
 
 
 # 替换
@@ -145,7 +116,7 @@ function lxk_diy(){
 }
 
 function main(){
-    # wuzhi_diy
+    wuzhi_diy
     
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
