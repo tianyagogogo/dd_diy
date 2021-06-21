@@ -117,8 +117,8 @@ function lxk_diy(){
 }
 
 function main(){
-    cat /dev/null > /scripts/crontab_list.sh
-    cat /dev/null > /scripts/merged_list_file.sh
+    cat /dev/null > /scripts/docker/crontab_list.sh
+    cat /dev/null > /scripts/docker/merged_list_file.sh
     wuzhi_diy
     
     # 判断外网IP,运行自己的代码
