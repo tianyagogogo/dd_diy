@@ -172,9 +172,9 @@ function main(){
     wuzhi_diy
     longzhuzhu_diy
     zooPanda_diy
-    star261_diy
+    #star261_diy
     #hyzaw_diy
-    #moposmall_diy
+    moposmall_diy
     
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
