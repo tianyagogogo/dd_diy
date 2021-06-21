@@ -78,8 +78,11 @@ function wuzhi_diy(){
     fi
     cp -f /wuzhi/jd_necklace.js /wuzhi/jd_djjl.js /scripts
     
+    
     # 电竞经理
     echo "20 10 * * * node /scripts/jd_djjl.js >> /scripts/logs/jd_djjl.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # 点点券
+    echo "20 0,20 * * * node /scripts/jd_necklace.js >> /scripts/logs/jd_necklace.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # zooPanda
