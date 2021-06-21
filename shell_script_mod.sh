@@ -67,7 +67,7 @@ function wuzhi_diy(){
         git -C /wuzhi pull origin main --rebase
     fi
     cp -f /wuzhi/*.js /scripts
-    cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/crontab_list.sh
+    cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
 }
 
