@@ -145,7 +145,7 @@ function lxk_diy(){
 }
 
 function main(){
-    wuzhi_diy
+    # wuzhi_diy
     
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
