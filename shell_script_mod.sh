@@ -1,7 +1,6 @@
 #!/bin/sh
 
 
-
 function diycron(){
     for jsname in /scripts/ddo_*.js /scripts/jddj_*.js /scripts/long_*.js; do
         jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
@@ -15,8 +14,6 @@ function diycron(){
    
     # 京喜财富岛提现
     echo "59 23 * * * sleep 59; node /scripts/jx_cfdtx.js >> /scripts/logs/jx_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
-    echo "0 10 * * * node /scripts/jd_qmwxj.js >> /scripts/logs/jd_qmwxj.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
 }
 
@@ -32,25 +29,12 @@ function jd_diy(){
     fi
     cp -f /scripts/logs/jdJxncTokens.js /scripts
     cp -f /jd_diy/scripts/*.js /scripts
-    cp -f /jd_diy/docker/crontab_list.sh /scripts/docker
+    # cp -f /jd_diy/docker/crontab_list.sh /scripts/docker
 }
 
 
 
-function hyzaw_diy(){
-    ## 克隆hyzawr仓库
-    if [ ! -d "/hyzaw/" ]; then
-        echo "未检查到hyzaw仓库脚本，初始化下载相关脚本..."
-        #git clone -b monk https://github.com/l107868382/dd_syc.git /monk
-        git clone -b main https://github.com/hyzaw/scripts.git /hyzaw
-        
-    else
-        echo "更新hyzawr脚本相关文件..."
-        git -C /hyzaw reset --hard
-        git -C /hyzaw pull origin main --rebase
-    fi
-    cp -f /hyzaw/*_*.js /scripts
-}
+
 
 function jddj_diy(){
     ## 克隆jddj_diy仓库
@@ -80,21 +64,6 @@ function longzhuzhu_diy(){
     cp -f /longzhuzhu/qx/*_*.js /scripts
 }
 
-# yangtingxiao jd_zoo
-function yangtingxiao_diy(){
-    if [ ! -d "/yangtingxiao/" ]; then
-        echo "未检查到yangtingxiao仓库脚本，初始化下载相关脚本..."
-        git clone -b master https://github.com/yangtingxiao/QuantumultX.git /yangtingxiao
-    else
-        echo "更新yangtingxiao脚本相关文件..."
-        git -C /yangtingxiao reset --hard
-        git -C /yangtingxiao pull origin master --rebase
-    fi
-    cp -f /yangtingxiao/scripts/jd/jd_zoo.js /scripts
-    
-    # 动物联萌 618活动
-    echo "5 * * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.js.log 2>&1" >> /scripts/docker/merged_list_file.sh
-}
 
 
 # wuzhi_diy
@@ -107,7 +76,10 @@ function wuzhi_diy(){
         git -C /wuzhi reset --hard
         git -C /wuzhi pull origin main --rebase
     fi
-    cp -f /wuzhi/jd_zoo.js /wuzhi/jd_zooCollect.js /wuzhi/ZooFaker.js /scripts
+    cp -f /wuzhi/jd_necklace.js /wuzhi/jd_djjl.js /scripts
+    
+    # 电竞经理
+    echo "20 10 * * * node /scripts/jd_djjl.js >> /scripts/logs/jd_djjl.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 # zooPanda
@@ -119,13 +91,7 @@ function zooPanda_diy(){
         echo "更新zooPanda脚本相关文件..."
         git -C /zooPanda reset --hard
         git -C /zooPanda pull origin dev --rebase
-    fi
-    cp -f /zooPanda/zoo*.js /scripts
-    echo "15 9 9-20 6 * node /scripts/zooOpencard06.js >> /scripts/logs/zooOpencard06.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    echo "11 9 1-18 6 * node /scripts/zooOpencard07.js >> /scripts/logs/zooOpencard07.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    echo "11 9 1-18 6 * node /scripts/zooOpencard08.js >> /scripts/logs/zooOpencard08.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    echo "11 10 * * * node /scripts/zooElecsport.js >> /scripts/logs/zooElecsport.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
+    fi    
 }
 
 # 京喜牧场
@@ -142,21 +108,12 @@ function moposmall_diy(){
     
     # 京喜牧场
     echo "10 0,12,22 * * * node /scripts/jx_mc.js >> /scripts/logs/jx_mc.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "15 0/3 * * * node /scripts/jx_mc_coin.js >> /scripts/logs/jx_mc_coin.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "30 12 * * * node /scripts/jx_mc_emptycabbage.js >> /scripts/logs/jx_mc_emptycabbage.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
 }
 
-# star261
-function star261_diy(){
-     if [ ! -d "/star261/" ]; then
-        echo "未检查到star261仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://github.com/star261/jd.git /star261
-    else
-        echo "更新star261脚本相关文件..."
-        git -C /star261 reset --hard
-        git -C /star261 pull origin main --rebase
-    fi
-    cp -f /star261/scripts/*.js /scripts
 
-}
 
 
 # 删除和lxk重复的脚本
@@ -245,3 +202,52 @@ main
 #cp -f /scripts/jd_blueCoin.js /scripts/l_jd_bluecoin.js
 # cat /jd_diy/remote_crontab_list.sh >> /scripts/docker/merged_list_file.sh
 
+/*  
+function yangtingxiao_diy(){
+    if [ ! -d "/yangtingxiao/" ]; then
+        echo "未检查到yangtingxiao仓库脚本，初始化下载相关脚本..."
+        git clone -b master https://github.com/yangtingxiao/QuantumultX.git /yangtingxiao
+    else
+        echo "更新yangtingxiao脚本相关文件..."
+        git -C /yangtingxiao reset --hard
+        git -C /yangtingxiao pull origin master --rebase
+    fi
+    cp -f /yangtingxiao/scripts/jd/jd_zoo.js /scripts
+    
+    # 动物联萌 618活动
+    echo "5 * * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.js.log 2>&1" >> /scripts/docker/merged_list_file.sh
+}
+
+
+# star261
+function star261_diy(){
+     if [ ! -d "/star261/" ]; then
+        echo "未检查到star261仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://github.com/star261/jd.git /star261
+    else
+        echo "更新star261脚本相关文件..."
+        git -C /star261 reset --hard
+        git -C /star261 pull origin main --rebase
+    fi
+    cp -f /star261/scripts/*.js /scripts
+
+}
+
+function hyzaw_diy(){
+    ## 克隆hyzawr仓库
+    if [ ! -d "/hyzaw/" ]; then
+        echo "未检查到hyzaw仓库脚本，初始化下载相关脚本..."
+        #git clone -b monk https://github.com/l107868382/dd_syc.git /monk
+        git clone -b main https://github.com/hyzaw/scripts.git /hyzaw
+        
+    else
+        echo "更新hyzawr脚本相关文件..."
+        git -C /hyzaw reset --hard
+        git -C /hyzaw pull origin main --rebase
+    fi
+    cp -f /hyzaw/*_*.js /scripts
+}
+
+
+
+*/
