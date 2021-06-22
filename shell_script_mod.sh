@@ -102,7 +102,7 @@ function main(){
     wuzhi_diy
     # 京东到家
     jddj_diy
-    hyzaw_diy
+    #hyzaw_diy
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
     iptxt=$(tail -1 ./ipstr.txt)
