@@ -100,7 +100,7 @@ function main(){
       echo "非l107服务器，不执行个性化代码---------------------------------------------------"
     fi    
     diycron
-    # otherreplace
+    otherreplace
 }
 
 main
