@@ -49,6 +49,21 @@ function jddj_diy(){
 }
 
 
+function hyzaw_diy(){
+    ## 克隆hyzaw仓库
+    if [ ! -d "/hyzaw_diy/" ]; then
+        echo "未检查到克隆jddj_diy仓库，初始化下载相关脚本..."
+        git clone -b main https://github.com/hyzaw/scripts.git /hyzaw_diy
+    else
+        echo "更新hyzaw脚本相关文件..."
+        git -C /hyzaw_diy reset --hard
+        git -C /hyzaw_diy pull origin main --rebase
+    fi  
+       cp -f /hyzaw_diy/ddo_pk.js /scripts
+       echo "15 0,6,13,19,21 * * * node /scripts/ddo_pk.js >> /scripts/logs/ddo_pk.log 2>&1" >> /scripts/docker/merged_list_file.sh
+}
+
+
 # wuzhi_diy
 function wuzhi_diy(){
     if [ ! -d "/wuzhi/" ]; then
@@ -87,7 +102,7 @@ function main(){
     wuzhi_diy
     # 京东到家
     jddj_diy
-    
+    hyzaw_diy
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
     iptxt=$(tail -1 ./ipstr.txt)
