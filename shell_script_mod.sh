@@ -106,7 +106,7 @@ function main(){
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
     iptxt=$(tail -1 ./ipstr.txt)
-    ipbd="43.129"
+    ipbd="152.70"
     result=$(echo $iptxt | grep "${ipbd}")
     if [[ "$result" != "" ]]
     then
