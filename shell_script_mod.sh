@@ -49,18 +49,20 @@ function jddj_diy(){
 }
 
 
-function hyzaw_diy(){
-    ## 克隆hyzaw仓库
-    if [ ! -d "/hyzaw_diy/" ]; then
-        echo "未检查到克隆jddj_diy仓库，初始化下载相关脚本..."
-        git clone -b main https://ghproxy.com/https://github.com/hyzaw/scripts.git /hyzaw_diy
+function panghu999_diy(){
+    ## 克隆panghu999仓库
+    if [ ! -d "/panghu999_diy/" ]; then
+        echo "未检查到克隆panghu999_diy仓库，初始化下载相关脚本..."
+        git clone -b master https://ghproxy.com/https://github.com/panghu999/panghu.git /panghu999_diy
     else
         echo "更新hyzaw脚本相关文件..."
-        git -C /hyzaw_diy reset --hard
-        git -C /hyzaw_diy pull origin main --rebase
+        git -C /panghu999_diy reset --hard
+        git -C /panghu999_diy pull origin master --rebase
     fi  
-       cp -f /hyzaw_diy/ddo_pk.js /scripts
-       echo "15 0,6,13,19,21 * * * node /scripts/ddo_pk.js >> /scripts/logs/ddo_pk.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       cp -f /panghu999_diy/jd_qmwxj.js /panghu999_diy/jd_wsdlb.js /panghu999_diy/jd_zjb.js  /scripts
+       echo "0 10 * * * node /scripts/jd_qmwxj.js >> /scripts/logs/jd_qmwxj.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       echo "5 0-23/6 * * * node /scripts/jd_wsdlb.js >> /scripts/logs/jd_wsdlb.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       echo "0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 
@@ -105,6 +107,8 @@ function main(){
     wuzhi_diy
     # 京东到家
     jddj_diy
+    # 柠檬
+    panghu999_diy
     #hyzaw_diy
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
