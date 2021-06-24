@@ -96,7 +96,7 @@ function main(){
     # 京东到家
     jddj_diy
     # 柠檬
-    #panghu999_diy
+    panghu999_diy
     #hyzaw_diy
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
