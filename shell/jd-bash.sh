@@ -16,6 +16,13 @@ function diycron(){
     
 }
 
+
+function jd_diy(){
+    cp -f /scripts/logs/jdJxncTokens.js /scripts
+    cp -f /jd_diy/scripts/*.js /scripts
+    
+}
+
 function jddj_diy(){
     ## 克隆jddj_diy仓库
     if [ ! -d "/jddj_diy/" ]; then
@@ -84,5 +91,28 @@ function otherreplace(){
 }
 
 
+function main(){
+    wuzhi_diy
+    # 京东到家
+    jddj_diy
+    # 柠檬
+    panghu999_diy
+    #hyzaw_diy
+    # 判断外网IP,运行自己的代码
+    curl icanhazip.com > ./ipstr.txt
+    iptxt=$(tail -1 ./ipstr.txt)
+    ipbd="152.70"
+    result=$(echo $iptxt | grep "${ipbd}")
+    if [[ "$result" != "" ]]
+    then
+      echo "l107服务器，执行性化代码--------------------------------------------------------"
+      jd_diy
+    else
+      echo "非l107服务器，不执行个性化代码---------------------------------------------------"
+    fi    
+    diycron
+    otherreplace
+}
 
+main
 
