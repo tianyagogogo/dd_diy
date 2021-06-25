@@ -151,7 +151,8 @@ if (process.env.PUSH_PLUS_USER) {
  * @param author 作者仓库等信息  例：`本脚本免费使用 By：https://gitee.com/lxk0301/jd_docker`
  * @returns {Promise<unknown>}
  */
-async function sendNotify(text, desp, params = {}, author = '\n\n 重要提示！！！\n 若提示cookie过期，请打开 https://jd.online189.cf/zheng/cookie/index 扫码挂机') {
+//https://www.yuque.com/books/share/c3b506f5-bcd1-40cf-a261-4211e49e243e 若提示cookie过期，请打开 https://jd.online189.cf/zheng/cookie/index 扫码挂机
+async function sendNotify(text, desp, params = {}, author = '\n\n 重要提示，扫码登录功能已失效！！！\n 请参考 https://www.yuque.com/books/share/c3b506f5-bcd1-40cf-a261-4211e49e243e 自行研究获取ck方法') {
   //提供6种通知
   desp += author;//增加作者信息，防止被贩卖等
   await Promise.all([
