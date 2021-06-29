@@ -47,11 +47,13 @@ function panghu999_diy(){
         git -C /panghu999_diy reset --hard
         git -C /panghu999_diy pull origin master --rebase
     fi  
-       cp -f /panghu999_diy/jd_qmwxj.js /panghu999_diy/jd_wsdlb.js /panghu999_diy/jd_zjb.js /panghu999_diy/jd_hwsx.js  /scripts
+       cp -f /panghu999_diy/jd_qmwxj.js /panghu999_diy/jd_wsdlb.js /panghu999_diy/jd_zjb.js /panghu999_diy/jd_hwsx.js /panghu999_diy/jd_ppdz.js /scripts
        echo "0 10 * * * node /scripts/jd_qmwxj.js >> /scripts/logs/jd_qmwxj.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "5 0-23/6 * * * node /scripts/jd_wsdlb.js >> /scripts/logs/jd_wsdlb.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "20 12,14 * * * node /scripts/jd_hwsx.js >> /scripts/logs/jd_hwsx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       echo "1 0 * * * node /scripts/jd_ppdz.js >> /scripts/logs/jd_ppdz.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       
        
 }
 
