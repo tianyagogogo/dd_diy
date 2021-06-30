@@ -20,8 +20,9 @@ function diycron(){
 function jd_diy(){
     cp -f /scripts/logs/jdJxncTokens.js /scripts
     cp -f /jd_diy/scripts/*.js /scripts
-    
 }
+
+
 
 function jddj_diy(){
     ## 克隆jddj_diy仓库
@@ -53,8 +54,6 @@ function panghu999_diy(){
        echo "0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "20 12,14 * * * node /scripts/jd_hwsx.js >> /scripts/logs/jd_hwsx.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "1 0 * * * node /scripts/jd_ppdz.js >> /scripts/logs/jd_ppdz.log 2>&1" >> /scripts/docker/merged_list_file.sh
-       
-       
 }
 
 
@@ -74,6 +73,22 @@ function wuzhi_diy(){
     sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
 }
 
+# Wenmoux_diy
+function Wenmoux_diy(){
+    if [ ! -d "/Wenmoux/" ]; then
+        echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
+        git clone -b master https://ghproxy.com/https://github.com/DovFork/Wenmoux.git /Wenmoux
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /Wenmoux reset --hard
+        git -C /Wenmoux pull origin master --rebase
+    fi
+    cp -f /Wenmoux/jd/*.js /scripts
+    echo "1 0-23/2 * * * node /scripts/jd_qqxing.js >> /scripts/logs/jd_qqxing.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "59 9 * * * node /scripts/jd_europeancup.js >> /scripts/logs/jd_europeancup.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "40 7 * * * node /scripts/jd_SplitRedPacket.js >> /scripts/logs/jd_SplitRedPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "50 7 * * * node /scripts/jd_ddnc_farmpark.js >> /scripts/logs/jd_ddnc_farmpark.log 2>&1" >> /scripts/docker/merged_list_file.sh
+}
 
 
 
@@ -105,6 +120,8 @@ function main(){
     jddj_diy
     # 柠檬
     panghu999_diy
+    # Wenmoux
+    Wenmoux_diy
     #hyzaw_diy
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
