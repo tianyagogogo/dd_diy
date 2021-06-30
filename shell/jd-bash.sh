@@ -121,7 +121,7 @@ function main(){
     # 柠檬
     panghu999_diy
     # Wenmoux
-    Wenmoux_diy
+    # Wenmoux_diy
     #hyzaw_diy
     # 判断外网IP,运行自己的代码
     curl icanhazip.com > ./ipstr.txt
