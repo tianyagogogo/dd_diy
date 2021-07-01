@@ -58,6 +58,20 @@ function panghu999_diy(){
        echo "1 0 * * * node /scripts/jd_ppdz.js >> /scripts/logs/jd_ppdz.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
+function panghu999_jd_diy(){
+    ## 克隆panghu999仓库
+    if [ ! -d "/panghu999_jd_diy/" ]; then
+        echo "未检查到克隆panghu999_jd_diy仓库，初始化下载相关脚本..."
+        git clone -b master https://ghproxy.com/https://github.com/panghu999/jd_scripts.git /panghu999_jd_diy
+    else
+        echo "更新hyzaw脚本相关文件..."
+        git -C /panghu999_jd_diy reset --hard
+        git -C /panghu999_jd_diy pull origin master --rebase
+    fi  
+       cp -f /panghu999_diy/jd_jdfactory.js /scripts
+       sed -i "s/`P04z54XCjVWnYaS5u2ak7ZCdan1Bdd2GGiWvC6_uERj`, 'P04z54XCjVWnYaS5m9cZ2ariXVJwHf0bgkG7Uo'/''/g" /scripts/jd_jdfactory.js
+}
+
 
 # wuzhi_diy
 function wuzhi_diy(){
@@ -122,6 +136,8 @@ function main(){
     jddj_diy
     # 柠檬
     panghu999_diy
+    # 柠檬_jd
+    panghu999_jd_diy
     # Wenmoux
     # Wenmoux_diy
     #hyzaw_diy
