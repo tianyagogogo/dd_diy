@@ -68,7 +68,7 @@ function panghu999_jd_diy(){
         git -C /panghu999_jd_diy reset --hard
         git -C /panghu999_jd_diy pull origin master --rebase
     fi  
-       cp -f /panghu999_jd_diy/jd_jdfactory.js /panghu999_jd_diy/jd_syj.js /scripts
+       cp -f /panghu999_jd_diy/jd_jdfactory.js /scripts
        sed -i "s/P04z54XCjVWnYaS5u2ak7ZCdan1Bdd2GGiWvC6_uERj/T0144vxzRxYf_VffIgCjVWnYaS5kRrbA/g" /scripts/jd_jdfactory.js
        sed -i "s/P04z54XCjVWnYaS5m9cZ2ariXVJwHf0bgkG7Uo/T0144vxzRxYf_VffIgCjVWnYaS5kRrbA/g" /scripts/jd_jdfactory.js
 }
