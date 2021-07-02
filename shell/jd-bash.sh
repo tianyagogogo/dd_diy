@@ -114,19 +114,20 @@ function otherreplace(){
     echo " otherreplace "
     # 注释掉 lxk jd_xtg的启动时间,新建启动时间
     sed -i "s/jd_xtg.js/jd_xtg_bak.js/g" /scripts/docker/merged_list_file.sh
-     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Fruit.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Fruit.json/g" /scripts/jd_fruit.js
+    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Fruit.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Fruit.json/g" /scripts/jd_fruit.js
     sed -i "s/let helpAuthor = true/let helpAuthor = false/g" /scripts/jd_fruit.js
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Cash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Cash.json/g" /scripts/jd_cash.js
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_updateCash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_updateCash.json/g" /scripts/jd_cash.js
     sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
 
-    # 推一推
-    export tytpacketId="bf6d945087ce4a53a514ee3c72a3032a-bDEwNzg2ODM4Mg!!"
-    # kanjian3
-    export skuId="10032948119524"
-    export activity="860182371356684288" 
+     cp -f /panghu999_diy/jd_qmwxj.js /panghu999_diy/jd_wsdlb.js /panghu999_diy/jd_zjb.js /panghu999_diy/jd_hwsx.js /panghu999_diy/jd_ppdz.js /panghu999_diy/jd_tyt.js /scripts
+     echo "0 10 * * * node /scripts/jd_qmwxj.js >> /scripts/logs/jd_qmwxj.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     echo "5 0-23/6 * * * node /scripts/jd_wsdlb.js >> /scripts/logs/jd_wsdlb.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     echo "0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     echo "20 12,14 * * * node /scripts/jd_hwsx.js >> /scripts/logs/jd_hwsx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     echo "1 0 * * * node /scripts/jd_ppdz.js >> /scripts/logs/jd_ppdz.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
-
+    
     #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
@@ -140,9 +141,9 @@ function main(){
     # 京东到家
     jddj_diy
     # 柠檬
-    panghu999_diy
+    #panghu999_diy
     # 柠檬_jd
-    panghu999_jd_diy
+    #panghu999_jd_diy
     # Wenmoux
     # Wenmoux_diy
     #hyzaw_diy
