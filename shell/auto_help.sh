@@ -41,12 +41,6 @@ exportSharecode() {
     #        | awk '{print $2,$4}' | sort -g | uniq
     #    echo "singleSharecode:${singleSharecode}"
 
-    
-    #只导出最多30个号的助力吗，防止参数过多，导致linux报异常
-    if [ ${cookiecount} -ge 25; then
-        cookiecount=25
-    fi
-    
     # 拼接多个账号助力码
     num=1
     while [ ${num} -le ${cookiecount} ]; do
@@ -60,8 +54,7 @@ exportSharecode() {
 
     #判断合成的助力码长度是否大于账号数，不大于，则可知没有助力码
     if [ ${#allSharecode} -gt ${cookiecount} ]; then
-      echo "${1}：导出助力码"
-      echo "导出的助力码为： ${allSharecode}"
+      echo "${1}：导出助力码 ${allSharecode}"
       export ${3}=${allSharecode}
     else
       echo "${1}：没有助力码，不导出"
