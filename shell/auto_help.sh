@@ -41,6 +41,10 @@ exportSharecode() {
     #        | awk '{print $2,$4}' | sort -g | uniq
     #    echo "singleSharecode:${singleSharecode}"
 
+    if [ ${cookiecount} -ge 20 ]; then
+      cookiecount=20
+    fi
+
     # 拼接多个账号助力码
     num=1
     while [ ${num} -le ${cookiecount} ]; do
