@@ -43,8 +43,8 @@ exportSharecode() {
 
     
     #只导出最多30个号的助力吗，防止参数过多，导致linux报异常
-    if [ ${cookiecount} -ge 30; then
-        cookiecount=30
+    if [ ${cookiecount} -ge 25; then
+        cookiecount=25
     fi
     
     # 拼接多个账号助力码
