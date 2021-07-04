@@ -37,7 +37,7 @@ exportSharecode() {
     echo "cookie个数：${cookiecount}"
 
     # 单个账号助力码
-    singleSharecode=$(sed -n '/'${1}'.*/'p ${logFile} | awk '{print $4}' | awk '{T=T"@"$1} END {print T}' | awk '{print substr($1,2)}')
+    singleSharecode=$(sed -n '/'${1}'.*/'p ${logFile} | sed -n '1,20'p | awk '{print $4}' | awk '{T=T"@"$1} END {print T}' | awk '{print substr($1,2)}')
     #        | awk '{print $2,$4}' | sort -g | uniq
     #    echo "singleSharecode:${singleSharecode}"
     echo "singleSharecode:${singleSharecode}"
