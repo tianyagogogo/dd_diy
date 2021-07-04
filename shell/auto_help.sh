@@ -40,7 +40,6 @@ exportSharecode() {
     singleSharecode=$(sed -n '/'${1}'.*/'p ${logFile} | sed -n '1,15'p | awk '{print $4}' | awk '{T=T"@"$1} END {print T}' | awk '{print substr($1,2)}')
     #        | awk '{print $2,$4}' | sort -g | uniq
     #    echo "singleSharecode:${singleSharecode}"
-    echo "singleSharecode:${singleSharecode}"
 
     # 拼接多个账号助力码
     num=1
