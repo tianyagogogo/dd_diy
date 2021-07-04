@@ -56,6 +56,8 @@ exportSharecode() {
     if [ ${#allSharecode} -gt ${cookiecount} ]; then
       echo "${1}：导出助力码 "
       export ${3}=${allSharecode}
+      
+      echo "export 的参数 ${3}"
     else
       echo "${1}：没有助力码，不导出"
     fi
