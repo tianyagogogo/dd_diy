@@ -63,7 +63,7 @@ exportSharecode() {
   else
     echo "${1}：${logFile} 不存在，不导出助力码"
   fi
-  env 
+   
 }
 
 #生成助力码
