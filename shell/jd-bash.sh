@@ -45,20 +45,22 @@ function jddj_diy(){
 
 function panghu_diy(){
     ## 克隆panghu999仓库
-    if [ ! -d "/panghu_diy/" ]; then
+    if [ ! -d "/panghu_diy2/" ]; then
         echo "未检查到克隆panghu_diy仓库，初始化下载相关脚本..."
-        git clone -b master https://gitee.com/l107868382/panghu.git /panghu_diy
+        git clone -b master https://ghproxy.com/https://github.com/panghu999/panghu.git /panghu_diy2
     else
         echo "更新hyzaw脚本相关文件..."
-        git -C /panghu_diy reset --hard
-        git -C /panghu_diy pull origin master --rebase
+        git -C /panghu_diy2 reset --hard
+        git -C /panghu_diy2 pull origin master --rebase
     fi  
-       cp -f /panghu_diy/jd_qmwxj.js /panghu_diy/jd_wsdlb.js /panghu_diy/jd_zjb.js /panghu_diy/jd_hwsx.js /panghu_diy/jd_ppdz.js /panghu_diy/jd_tyt.js /scripts
+       cp -f /panghu_diy2/jd_qmwxj.js /panghu_diy2/jd_wsdlb.js /panghu_diy2/jd_zjb.js /panghu_diy2/jd_hwsx.js /panghu_diy2/jd_ppdz.js /panghu_diy2/jd_tyt.js /panghu_diy2/jd_pk.js /scripts
        echo "0 10 * * * node /scripts/jd_qmwxj.js >> /scripts/logs/jd_qmwxj.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "5 0-23/6 * * * node /scripts/jd_wsdlb.js >> /scripts/logs/jd_wsdlb.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "20 12,14 * * * node /scripts/jd_hwsx.js >> /scripts/logs/jd_hwsx.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "1 0 * * * node /scripts/jd_ppdz.js >> /scripts/logs/jd_ppdz.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       echo "0 10,11 * * * node /scripts/jd_pk.js >> /scripts/logs/jd_ppdz.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       
 }
 
 
