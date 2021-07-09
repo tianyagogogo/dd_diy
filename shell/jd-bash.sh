@@ -59,7 +59,7 @@ function panghu_diy(){
         git -C /panghu_diy2 reset --hard
         git -C /panghu_diy2 pull origin master --rebase
     fi  
-       cp -f /panghu_diy2/jd_qmwxj.js /panghu_diy2/jd_wsdlb.js /panghu_diy2/jd_zjb.js /panghu_diy2/jd_hwsx.js /panghu_diy2/jd_ppdz.js /panghu_diy2/jd_tyt.js /panghu_diy2/jd_pk.js /panghu_diy2/jd_lsj.js /scripts
+       cp -f /panghu_diy2/jd_qmwxj.js /panghu_diy2/jd_wsdlb.js /panghu_diy2/jd_zjb.js /panghu_diy2/jd_hwsx.js /panghu_diy2/jd_ppdz.js /panghu_diy2/jd_tyt.js /panghu_diy2/jd_pk.js /panghu_diy2/jd_lsj.js /panghu_diy2/jd_senbeans.js /scripts
        echo "0 10 * * * node /scripts/jd_qmwxj.js >> /scripts/logs/jd_qmwxj.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "5 0-23/6 * * * node /scripts/jd_wsdlb.js >> /scripts/logs/jd_wsdlb.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "0 5 * * * node /scripts/jd_zjb.js >> /scripts/logs/jd_zjb.log 2>&1" >> /scripts/docker/merged_list_file.sh
@@ -67,6 +67,7 @@ function panghu_diy(){
        echo "1 0 * * * node /scripts/jd_ppdz.js >> /scripts/logs/jd_ppdz.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "0 10,11 * * * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1" >> /scripts/docker/merged_list_file.sh
        echo "0 11 * * * node /scripts/jd_lsj.js >> /scripts/logs/jd_lsj.log 2>&1" >> /scripts/docker/merged_list_file.sh
+       echo "45 6 * * * node /scripts/jd_senbeans.js >> /scripts/logs/jd_senbeans.log 2>&1" >> /scripts/docker/merged_list_file.sh
        
 }
 
