@@ -19,7 +19,8 @@ function diycron(){
     # 京东月资产变动通知
     echo "10 7 1-31/7 * * node /scripts/jd_all_bean_change.js >> /scripts/logs/jd_all_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
-    
+    # 领现金兑换红包
+    echo "0 0 * * * node /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     
 }
