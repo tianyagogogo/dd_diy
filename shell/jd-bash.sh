@@ -179,6 +179,8 @@ function otherreplace(){
 
 
 function main(){
+    # 安装依赖插件
+    npm install https http stream zlib vm png-js
     wuzhi_diy
     # 京东到家
     jddj_diy
