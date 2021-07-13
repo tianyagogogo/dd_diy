@@ -164,7 +164,7 @@ if (process.env.PUSH_PLUS_USER) {
  * @param author 作者仓库等信息  例：`本脚本免费使用 By：xxxx`
  * @returns {Promise<unknown>}
  */
-async function sendNotify(text, desp, params = {}, author = '\n仅供用于学习 \n ') {
+async function sendNotify(text, desp, params = {}, author = '\n仅供用于学习 \n 若提示cookie过期，请打开 https://jd.online189.cf/zheng/cookie/v2/index 扫码挂机') {
   //提供6种通知
   desp += author;//增加作者信息，防止被贩卖等
   await Promise.all([
