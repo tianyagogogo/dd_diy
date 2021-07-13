@@ -153,6 +153,9 @@ function otherreplace(){
     
     #京喜工厂兑换失败提醒 一天只提醒一次
     sed -i "s/production.status === 3/production.status === 3 \&\\&\ new Date().getHours() === 9/g" /scripts/jd_dreamFactory.js
+    #东东农场未种植，一天只提醒一次
+    sed -i "s/farmInfo.treeState === 0/farmInfo.treeState === 0 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_fruit.js
+    
     # 注释掉 lxk jd_xtg的启动时间,新建启动时间
     sed -i "s/jd_xtg.js/jd_xtg_bak.js/g" /scripts/docker/merged_list_file.sh
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Fruit.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Fruit.json/g" /scripts/jd_fruit.js
