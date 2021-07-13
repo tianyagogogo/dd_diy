@@ -127,9 +127,7 @@ function Wenmoux_diy(){
 
 # smiek2221
 function smiek2221_diy(){
-    # 安装依赖插件
-    npm install https http stream zlib vm png-js
-    
+   
     if [ ! -d "/smiek2221/" ]; then
         echo "未检查到smiek2221仓库脚本，初始化下载相关脚本..."
         git clone -b master https://ghproxy.com/https://github.com/smiek2221/scripts.git /smiek2221
@@ -180,9 +178,13 @@ function otherreplace(){
    
 }
 
+ # 安装依赖插件
+function npmInstall(){
+    npm install https http stream zlib vm png-js axios date-fns ts-md5 dotenv crypto-js
+}
 
 function main(){
-    
+    npmInstall
     wuzhi_diy
     # 京东到家
     jddj_diy
@@ -194,17 +196,7 @@ function main(){
     # Wenmoux_diy
     #hyzaw_diy
     # 判断外网IP,运行自己的代码
-    curl icanhazip.com > ./ipstr.txt
-    iptxt=$(tail -1 ./ipstr.txt)
-    ipbd="152.70"
-    result=$(echo $iptxt | grep "${ipbd}")
-    if [[ "$result" != "" ]]
-    then
-      echo "l107服务器，执行性化代码--------------------------------------------------------"
-      jd_diy
-    else
-      echo "非l107服务器，不执行个性化代码---------------------------------------------------"
-    fi    
+    jd_diy
     smiek2221_diy
     diycron
     otherreplace
@@ -212,3 +204,21 @@ function main(){
 
 main
 
+
+
+    #panghu999_jd_diy
+    # Wenmoux
+    # Wenmoux_diy
+    #hyzaw_diy
+    # 判断外网IP,运行自己的代码
+    #curl icanhazip.com > ./ipstr.txt
+    #iptxt=$(tail -1 ./ipstr.txt)
+    #ipbd="152.70"
+    #result=$(echo $iptxt | grep "${ipbd}")
+    #if [[ "$result" != "" ]]
+    #then
+    #  echo "l107服务器，执行性化代码--------------------------------------------------------"
+    #  jd_diy
+    #else
+    #  echo "非l107服务器，不执行个性化代码---------------------------------------------------"
+    #fi    
