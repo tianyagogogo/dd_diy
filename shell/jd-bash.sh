@@ -155,6 +155,8 @@ function otherreplace(){
     sed -i "s/production.status === 3/production.status === 3 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_dreamFactory.js
     #东东农场未种植，一天只提醒一次
     sed -i "s/farmInfo.treeState === 0/farmInfo.treeState === 0 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_fruit.js
+    # 金融养猪，一天只提醒一次
+    sed -i "s/data.resultData.resultData.wished/data.resultData.resultData.wished \&\\&\ new Date().getHours() === 12/g" /scripts/jd_pigPet.js
     
     # 注释掉 lxk jd_xtg的启动时间,新建启动时间
     sed -i "s/jd_xtg.js/jd_xtg_bak.js/g" /scripts/docker/merged_list_file.sh
