@@ -125,6 +125,29 @@ function Wenmoux_diy(){
 }
 
 
+# smiek2221
+function smiek2221_diy(){
+    if [ ! -d "/smiek2221/" ]; then
+        echo "未检查到smiek2221仓库脚本，初始化下载相关脚本..."
+        git clone -b master https://ghproxy.com/https://github.com/smiek2221/scripts.git /smiek2221
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /smiek2221 reset --hard
+        git -C /smiek2221 pull origin master --rebase
+    fi
+    cp -f /smiek2221/jd_summer*.js /scripts
+    
+    sed -i "s/let summer_movement_joinjoinjoinhui = false/let summer_movement_joinjoinjoinhui = true/g" /scripts/jd_summer_movement.js
+    sed -i "s/let summer_movement_HelpHelpHelpFlag = false/let summer_movement_HelpHelpHelpFlag = true/g" /scripts/jd_summer_movement.js
+    sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement.js
+    sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement_help.js
+    
+    const ShHelpAuthorFlag = true
+    
+}
+
+
+
 
 # 替换
 function otherreplace(){
@@ -139,7 +162,7 @@ function otherreplace(){
     sed -i "s/jd_cfd.js/jd_cfd_bak.js/g" /scripts/docker/merged_list_file.sh
     
     # 关闭京东到家通知
-    sed -i "s/let isNotify = true/jlet isNotify = false/g" /scripts/jddj_fruit.js
+    sed -i "s/let isNotify = true/let isNotify = false/g" /scripts/jddj_fruit.js
   
     #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
