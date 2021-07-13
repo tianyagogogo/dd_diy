@@ -152,7 +152,7 @@ function otherreplace(){
     echo " otherreplace "
     
     #京喜工厂兑换失败提醒 一天只提醒一次
-    sed -i "s/production.status === 3/production.status === 3 \&\\&\ new Date().getHours() === 9/g" /scripts/jd_dreamFactory.js
+    sed -i "s/production.status === 3/production.status === 3 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_dreamFactory.js
     #东东农场未种植，一天只提醒一次
     sed -i "s/farmInfo.treeState === 0/farmInfo.treeState === 0 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_fruit.js
     
