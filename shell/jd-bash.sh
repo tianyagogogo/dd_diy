@@ -140,7 +140,6 @@ function smiek2221_diy(){
     fi
     
     cp -f /smiek2221/*.js /scripts
-    echo "10 0-21/3 * * * node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1" >> /scripts/docker/merged_list_file.sh
     sed -i "s/let summer_movement_joinjoinjoinhui = false/let summer_movement_joinjoinjoinhui = true/g" /scripts/jd_summer_movement.js
     sed -i "s/let summer_movement_HelpHelpHelpFlag = false/let summer_movement_HelpHelpHelpFlag = true/g" /scripts/jd_summer_movement.js
     sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement.js
