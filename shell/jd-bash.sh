@@ -142,8 +142,6 @@ function smiek2221_diy(){
     sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement.js
     sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement_help.js
     
-    const ShHelpAuthorFlag = true
-    
 }
 
 
@@ -195,6 +193,7 @@ function main(){
     else
       echo "非l107服务器，不执行个性化代码---------------------------------------------------"
     fi    
+    smiek2221_diy
     diycron
     otherreplace
 }
