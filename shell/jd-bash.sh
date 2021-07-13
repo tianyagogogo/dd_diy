@@ -178,7 +178,7 @@ function otherreplace(){
 
  # 安装依赖插件
 function npmInstall(){
-    npm install https http stream zlib vm png-js axios date-fns ts-md5 dotenv crypto-js
+    npm install https http stream zlib vm png-js axios date-fns ts-md5 dotenv crypto-js --prefix /scripts
 }
 
 function main(){
