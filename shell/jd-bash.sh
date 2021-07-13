@@ -127,6 +127,9 @@ function Wenmoux_diy(){
 
 # smiek2221
 function smiek2221_diy(){
+    # 安装依赖插件
+    npm install https http stream zlib vm png-js
+    
     if [ ! -d "/smiek2221/" ]; then
         echo "未检查到smiek2221仓库脚本，初始化下载相关脚本..."
         git clone -b master https://ghproxy.com/https://github.com/smiek2221/scripts.git /smiek2221
@@ -135,8 +138,9 @@ function smiek2221_diy(){
         git -C /smiek2221 reset --hard
         git -C /smiek2221 pull origin master --rebase
     fi
-    cp -f /smiek2221/jd_summer*.js /smiek2221/jd_joy.js /scripts
     
+    cp -f /smiek2221/*.js /scripts
+    echo "10 0-21/3 * * * node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1" >> /scripts/docker/merged_list_file.sh
     sed -i "s/let summer_movement_joinjoinjoinhui = false/let summer_movement_joinjoinjoinhui = true/g" /scripts/jd_summer_movement.js
     sed -i "s/let summer_movement_HelpHelpHelpFlag = false/let summer_movement_HelpHelpHelpFlag = true/g" /scripts/jd_summer_movement.js
     sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement.js
@@ -179,8 +183,7 @@ function otherreplace(){
 
 
 function main(){
-    # 安装依赖插件
-    npm install https http stream zlib vm png-js
+    
     wuzhi_diy
     # 京东到家
     jddj_diy
