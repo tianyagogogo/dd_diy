@@ -135,7 +135,7 @@ function smiek2221_diy(){
         git -C /smiek2221 reset --hard
         git -C /smiek2221 pull origin master --rebase
     fi
-    cp -f /smiek2221/jd_summer*.js /scripts
+    cp -f /smiek2221/jd_summer*.js /smiek2221/jd_joy.js /scripts
     
     sed -i "s/let summer_movement_joinjoinjoinhui = false/let summer_movement_joinjoinjoinhui = true/g" /scripts/jd_summer_movement.js
     sed -i "s/let summer_movement_HelpHelpHelpFlag = false/let summer_movement_HelpHelpHelpFlag = true/g" /scripts/jd_summer_movement.js
