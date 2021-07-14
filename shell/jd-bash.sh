@@ -138,12 +138,12 @@ function smiek2221_diy(){
     fi
     
     cp -f /smiek2221/*.js /scripts
-    #echo "18 0-23/2 * * * node /scripts/gua_wealth_island.js >> /scripts/logs/gua_wealth_island.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "50 0-23/4 * * * node /scripts/gua_wealth_island.js >> /scripts/logs/gua_wealth_island.log 2>&1" >> /scripts/docker/merged_list_file.sh
     sed -i "s/let summer_movement_joinjoinjoinhui = false/let summer_movement_joinjoinjoinhui = true/g" /scripts/jd_summer_movement.js
     sed -i "s/let summer_movement_HelpHelpHelpFlag = false/let summer_movement_HelpHelpHelpFlag = true/g" /scripts/jd_summer_movement.js
     sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement.js
     sed -i "s/const ShHelpAuthorFlag = true/const ShHelpAuthorFlag = false/g" /scripts/jd_summer_movement_help.js
-    #sed -i "s/const HelpAuthorFlag = true/const HelpAuthorFlag = false/g" /scripts/gua_wealth_island.js
+    sed -i "s/const HelpAuthorFlag = true/const HelpAuthorFlag = false/g" /scripts/gua_wealth_island.js
     
 }
 
