@@ -36,15 +36,17 @@ function jd_diy(){
 
 
 
-function jddj_diy(){
-    ## 克隆jddj_diy仓库
-    if [ ! -d "/jddj_diy/" ]; then
+
+
+function jddj2_diy(){
+    ## 克隆jddj2_diy仓库
+    if [ ! -d "/jddj2_diy/" ]; then
         echo "未检查到克隆jddj_diy仓库，初始化下载相关脚本..."
-        git clone -b main https://ghproxy.com/https://github.com/717785320/JDDJ.git /jddj_diy
+        git clone -b main https://ghproxy.com/https://github.com/passerby-b/JDDJ.git /jddj2_diy
     else
-        echo "更新jddj_diy脚本相关文件..."
-        git -C /jddj_diy reset --hard
-        git -C /jddj_diy pull origin main --rebase
+        echo "更新jddj2_diy脚本相关文件..."
+        git -C /jddj2_diy reset --hard
+        git -C /jddj2_diy pull origin main --rebase
     fi  
     cp -f /jddj_diy/jddj_*.js /scripts
 }
@@ -186,9 +188,7 @@ function otherreplace(){
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Cash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Cash.json/g" /scripts/jd_cash.js
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_updateCash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_updateCash.json/g" /scripts/jd_cash.js
 
-   
-  
-      #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
+    #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
     #sed -i "s/jd_cfd.js/jd_cfd_bak.js/g" /scripts/docker/merged_list_file.sh
     #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
@@ -206,7 +206,7 @@ function main(){
     npmInstall
     wuzhi_diy
     # 京东到家
-    jddj_diy
+    jddj2_diy
     # 柠檬
     panghu_diy
     # 柠檬_jd
@@ -242,3 +242,17 @@ main
     #else
     #  echo "非l107服务器，不执行个性化代码---------------------------------------------------"
     #fi    
+    
+    
+    function jddj_diy(){
+    ## 克隆jddj_diy仓库
+    if [ ! -d "/jddj_diy/" ]; then
+        echo "未检查到克隆jddj_diy仓库，初始化下载相关脚本..."
+        git clone -b main https://ghproxy.com/https://github.com/717785320/JDDJ.git /jddj_diy
+    else
+        echo "更新jddj_diy脚本相关文件..."
+        git -C /jddj_diy reset --hard
+        git -C /jddj_diy pull origin main --rebase
+    fi  
+    cp -f /jddj_diy/jddj_*.js /scripts
+}
