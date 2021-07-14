@@ -148,6 +148,25 @@ function smiek2221_diy(){
 }
 
 
+# star261
+function star261_diy(){
+   
+    if [ ! -d "/star261/" ]; then
+        echo "未检查到star261仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://ghproxy.com/https://github.com/star261/jd.git /star261
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /star261 reset --hard
+        git -C /star261 pull origin main --rebase
+    fi
+    
+    cp -f /star261/scripts/*.js /scripts
+    echo "11 12,20 * * * node /scripts/jd_summer_movement_bet.js >> /scripts/logs/jd_summer_movement_bet.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "10 8 * * * node /scripts/jd_summer_movement_card.js >> /scripts/logs/jd_summer_movement_card.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "7 10,20 * * * node /scripts/jd_summer_movement_map.js >> /scripts/logs/jd_summer_movement_map.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
+}
+
 
 
 # 替换
@@ -198,6 +217,7 @@ function main(){
     # 判断外网IP,运行自己的代码
     jd_diy
     smiek2221_diy
+    star261_diy
     diycron
     otherreplace
 }
