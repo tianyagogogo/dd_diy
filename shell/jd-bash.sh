@@ -101,7 +101,7 @@ function wuzhi_diy(){
         git -C /wuzhi reset --hard
         git -C /wuzhi pull origin main --rebase
     fi
-    cp -f /wuzhi/*.js /scripts
+    cp -f /wuzhi/*.js /wuzhi/package.json /scripts
     cat /dev/null > /scripts/docker/merged_list_file.sh
     cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
     sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
@@ -201,7 +201,7 @@ function npmInstall(){
 }
 
 function main(){
-    npmInstall
+    #npmInstall
     wuzhi_diy
     # 京东到家
     jddj_diy
