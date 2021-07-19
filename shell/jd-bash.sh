@@ -215,7 +215,9 @@ function main(){
     #hyzaw_diy
     # 判断外网IP,运行自己的代码
     jd_diy
-    smiek2221_diy
+    
+    
+    #smiek2221_diy
     star261_diy
     diycron
     otherreplace
