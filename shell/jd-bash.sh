@@ -188,7 +188,7 @@ function otherreplace(){
     sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
     
     # 京喜财富岛提现
-    echo "59 23 * * * sleep 50; node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "59 11,23 * * * sleep 50; node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
     sed -i "s/jd_cfdtx.js/jd_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
