@@ -167,6 +167,22 @@ function star261_diy(){
     
 }
 
+# 快手
+function ks_diy(){
+   
+    if [ ! -d "/ks_fruit/" ]; then
+        echo "未检查到ks_fruit仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://ghproxy.com/https://github.com/passerby-b/ks_fruit.git /ks_fruit
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /ks_fruit reset --hard
+        git -C /ks_fruit pull origin main --rebase
+    fi
+    
+    cp -f /ks_fruit/*.js /scripts
+    echo "30 1,8,12,17 * * * node /scripts/ks_fruit.js >> /scripts/logs/ks_fruit.log 2>&1" >> /scripts/docker/merged_list_file.sh
+   
+}
 
 
 # 替换
@@ -211,6 +227,8 @@ function main(){
     jddj_diy
     # 柠檬
     panghu_diy
+    # 快手
+    ks_diy
     # 柠檬_jd
     #panghu999_jd_diy
     # Wenmoux
