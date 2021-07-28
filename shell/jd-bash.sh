@@ -222,7 +222,7 @@ function npmInstall(){
 }
 
 function main(){
-    npmInstall
+    #npmInstall
     wuzhi_diy
     # 京东到家
     jddj_diy
