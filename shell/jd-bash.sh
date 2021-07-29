@@ -102,6 +102,7 @@ function wuzhi_diy(){
         git -C /wuzhi pull origin main --rebase
     fi
     cp -f /wuzhi/*.js /wuzhi/package.json /scripts
+    cp -f /wuzhi/utils/*.js /scripts/utils
     cat /dev/null > /scripts/docker/merged_list_file.sh
     cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
     sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
@@ -208,7 +209,7 @@ function otherreplace(){
    
     
     #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
-    sed -i "s/jd_cfdtx.js/jd_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
+    #sed -i "s/jd_cfdtx.js/jd_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
     #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
