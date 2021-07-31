@@ -230,7 +230,7 @@ function main(){
     # 京东到家
     jddj_diy
     # 柠檬
-    panghu_diy
+    #panghu_diy
     # 快手
     ks_diy
     # 柠檬_jd
