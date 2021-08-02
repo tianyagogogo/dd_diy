@@ -243,7 +243,7 @@ function main(){
     
     
     #smiek2221_diy
-    star261_diy
+    #star261_diy
     diycron
     otherreplace
 }
