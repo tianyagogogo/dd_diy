@@ -165,6 +165,10 @@ if (process.env.PUSH_PLUS_USER) {
  * @returns {Promise<unknown>}
  */
 async function sendNotify(text, desp, params = {}, author = '\n仅供用于学习。若提示cookie过期，点 https://jd.online189.cf/zheng/cookie/v2/index 扫码挂机') {
+ if(desp==null || desp==''){
+  return ;
+ } 
+ 
   //提供6种通知
   desp += author;//增加作者信息，防止被贩卖等
   await Promise.all([
