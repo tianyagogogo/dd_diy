@@ -176,6 +176,13 @@ async function sendNotify(text, desp, params = {}, author = '\n仅供用于学�
   return ;
  }
  
+ if(desp.indexOf('请选择新商品进行制造') >-1 ){
+  console.log('请选择新商品进行制造，不发送通知！')
+  return ;
+ }
+ 
+ 
+ 
   //提供6种通知
   desp += author;//增加作者信息，防止被贩卖等
   await Promise.all([
