@@ -166,6 +166,7 @@ if (process.env.PUSH_PLUS_USER) {
  */
 async function sendNotify(text, desp, params = {}, author = '\n仅供用于学习。若提示cookie过期，点 https://jd.online189.cf/zheng/cookie/v2/index 扫码挂机') {
  if(desp==null || desp==''){
+  console.log('desp数据为空，不发送通知！')
   return ;
  } 
  
