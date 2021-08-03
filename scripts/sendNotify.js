@@ -166,8 +166,13 @@ if (process.env.PUSH_PLUS_USER) {
  */
 async function sendNotify(text, desp, params = {}, author = '\n仅供用于学习。若提示cookie过期，点 https://jd.online189.cf/zheng/cookie/v2/index 扫码挂机') {
  
-  if( (desp==null || desp=='') && text.indexOf("已成熟") <= -1 ){
+  if( desp==null || desp=='' ){
     console.log('desp数据为空，不发送通知！')
+    return ;
+   } 
+ 
+  if( !( text.indexOf('京东到家果园') >-1 && (  text.indexOf('已成熟') >-1 || desp.indexOf('已成熟') >-1 ) )  ){
+    console.log(' 京东到家果园未成熟，不发送通知！')
     return ;
    } 
 
