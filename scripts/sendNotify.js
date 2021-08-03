@@ -180,7 +180,12 @@ async function sendNotify(text, desp, params = {}, author = '\n仅供用于学�
     console.log('请选择新商品进行制造，不发送通知！')
     return ;
    }
-
+ 
+  if(desp.indexOf('您忘了种植新的水果') >-1 ){
+    console.log('您忘了种植新的水果，不发送通知！')
+    return ;
+   }
+ 
   if(text.indexOf('金融养猪') >-1 ){
     console.log('金融养猪，不发送通知！')
     return ;
