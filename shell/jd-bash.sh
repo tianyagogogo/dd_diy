@@ -10,18 +10,14 @@ function diycron(){
     ln -sf /usr/local/bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint_mix.sh
     echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
-  
     #收集助力码
     echo "30 * * * * sh +x /scripts/docker/auto_help.sh collect |ts >> /scripts/logs/auto_help_collect.log 2>&1" >> /scripts/docker/merged_list_file.sh
     #东东工厂修改执行频率
     echo "*/43 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
     # 京东月资产变动通知
     echo "10 7 1-31/7 * * node /scripts/jd_all_bean_change.js >> /scripts/logs/jd_all_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
     # 领现金兑换红包
     echo "59 23 * * 4,5 sleep 57; node /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
     
 }
 
@@ -50,7 +46,115 @@ function jddj_diy(){
 }
 
 
-function panghu_diy(){
+
+
+# wuzhi_diy
+function wuzhi_diy(){
+    if [ ! -d "/wuzhi/" ]; then
+        echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://ghproxy.com/https://github.com/wuzhi04/MyActions.git /wuzhi
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /wuzhi reset --hard
+        git -C /wuzhi pull origin main --rebase
+    fi
+    cp -f /wuzhi/*.js /wuzhi/package.json /scripts
+    cp -f /wuzhi/utils/*.js /scripts/utils
+    cat /dev/null > /scripts/docker/merged_list_file.sh
+    cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
+    sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
+}
+
+
+# 快手
+function ks_diy(){
+    if [ ! -d "/ks_fruit/" ]; then
+        echo "未检查到ks_fruit仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://ghproxy.com/https://github.com/passerby-b/ks_fruit.git /ks_fruit
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /ks_fruit reset --hard
+        git -C /ks_fruit pull origin main --rebase
+    fi
+    
+    cp -f /ks_fruit/*.js /scripts
+    echo "30 1,8,12,17 * * * node /scripts/ks_fruit.js >> /scripts/logs/ks_fruit.log 2>&1" >> /scripts/docker/merged_list_file.sh
+   
+}
+
+
+# 替换
+function otherreplace(){
+    echo " otherreplace "
+    #京喜工厂兑换失败提醒 一天只提醒一次
+    sed -i "s/production.status === 3/production.status === 3 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_dreamFactory.js
+    #东东农场未种植，一天只提醒一次
+    sed -i "s/farmInfo.treeState === 0/farmInfo.treeState === 0 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_fruit.js
+    # 金融养猪，一天只提醒一次
+    sed -i "s/data.resultData.resultData.wished/data.resultData.resultData.wished \&\\&\ new Date().getHours() === 12/g" /scripts/jd_pigPet.js
+     # 关闭京东到家通知
+    #sed -i "s/let isNotify = true/let isNotify = false/g" /scripts/jddj_fruit.js
+    
+    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Fruit.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Fruit.json/g" /scripts/jd_fruit.js
+    sed -i "s/let helpAuthor = true/let helpAuthor = false/g" /scripts/jd_fruit.js
+    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Cash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Cash.json/g" /scripts/jd_cash.js
+    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_updateCash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_updateCash.json/g" /scripts/jd_cash.js
+    sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
+    #惊喜88红包
+    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
+
+   
+    
+    #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
+    #sed -i "s/jd_cfdtx.js/jd_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
+    #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
+    # sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
+   
+    # 京喜财富岛提现
+    echo "59 11,12,23 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+}
+
+ # 安装依赖插件
+function npmInstall(){
+    npm install @types/node download got http-server qrcode-terminal request tough-cookie tslib tunnel stream zlib vm png-js axios date-fns ts-md5 dotenv crypto-js --prefix /scripts
+}
+
+function main(){
+    npmInstall
+    wuzhi_diy
+    # 京东到家
+    jddj_diy
+    # 快手
+    ks_diy
+    jd_diy
+    diycron
+    otherreplace
+}
+
+main
+
+
+
+    #panghu999_jd_diy
+    # Wenmoux
+    # Wenmoux_diy
+    #hyzaw_diy
+    # 判断外网IP,运行自己的代码
+    #curl icanhazip.com > ./ipstr.txt
+    #iptxt=$(tail -1 ./ipstr.txt)
+    #ipbd="152.70"
+    #result=$(echo $iptxt | grep "${ipbd}")
+    #if [[ "$result" != "" ]]
+    #then
+    #  echo "l107服务器，执行性化代码--------------------------------------------------------"
+    #  jd_diy
+    #else
+    #  echo "非l107服务器，不执行个性化代码---------------------------------------------------"
+    #fi    
+    
+    function panghu_diy(){
     ## 克隆panghu999仓库
     if [ ! -d "/panghu_diy2/" ]; then
         echo "未检查到克隆panghu_diy仓库，初始化下载相关脚本..."
@@ -90,23 +194,6 @@ function panghu999_jd_diy(){
        sed -i "s/P04z54XCjVWnYaS5m9cZ2ariXVJwHf0bgkG7Uo/T0144vxzRxYf_VffIgCjVWnYaS5kRrbA/g" /scripts/jd_jdfactory.js
 }
 
-
-# wuzhi_diy
-function wuzhi_diy(){
-    if [ ! -d "/wuzhi/" ]; then
-        echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://ghproxy.com/https://github.com/wuzhi04/MyActions.git /wuzhi
-    else
-        echo "更新wuzhi脚本相关文件..."
-        git -C /wuzhi reset --hard
-        git -C /wuzhi pull origin main --rebase
-    fi
-    cp -f /wuzhi/*.js /wuzhi/package.json /scripts
-    cp -f /wuzhi/utils/*.js /scripts/utils
-    cat /dev/null > /scripts/docker/merged_list_file.sh
-    cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
-    sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
-}
 
 # Wenmoux_diy
 function Wenmoux_diy(){
@@ -168,106 +255,4 @@ function star261_diy(){
     
 }
 
-# 快手
-function ks_diy(){
-   
-    if [ ! -d "/ks_fruit/" ]; then
-        echo "未检查到ks_fruit仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://ghproxy.com/https://github.com/passerby-b/ks_fruit.git /ks_fruit
-    else
-        echo "更新wuzhi脚本相关文件..."
-        git -C /ks_fruit reset --hard
-        git -C /ks_fruit pull origin main --rebase
-    fi
-    
-    cp -f /ks_fruit/*.js /scripts
-    echo "30 1,8,12,17 * * * node /scripts/ks_fruit.js >> /scripts/logs/ks_fruit.log 2>&1" >> /scripts/docker/merged_list_file.sh
-   
-}
-
-
-# 替换
-function otherreplace(){
-    echo " otherreplace "
-    #京喜工厂兑换失败提醒 一天只提醒一次
-    sed -i "s/production.status === 3/production.status === 3 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_dreamFactory.js
-    #东东农场未种植，一天只提醒一次
-    sed -i "s/farmInfo.treeState === 0/farmInfo.treeState === 0 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_fruit.js
-    # 金融养猪，一天只提醒一次
-    sed -i "s/data.resultData.resultData.wished/data.resultData.resultData.wished \&\\&\ new Date().getHours() === 12/g" /scripts/jd_pigPet.js
-     # 关闭京东到家通知
-    sed -i "s/let isNotify = true/let isNotify = false/g" /scripts/jddj_fruit.js
-    
-    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Fruit.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Fruit.json/g" /scripts/jd_fruit.js
-    sed -i "s/let helpAuthor = true/let helpAuthor = false/g" /scripts/jd_fruit.js
-    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Cash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Cash.json/g" /scripts/jd_cash.js
-    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_updateCash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_updateCash.json/g" /scripts/jd_cash.js
-    sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
-    #惊喜88红包
-    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
-
-   
-    
-    #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
-    #sed -i "s/jd_cfdtx.js/jd_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
-    #echo "0 6 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # echo "28 0,12,18,21 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    # sed -i "s/inviteCodes\[tempIndex\].split('@')/[]/g" /scripts/jd_city.js
-    # sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/city\/query\/10\//https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_city.js
-   
-    # 京喜财富岛提现
-    echo "59 11,12,23 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
-}
-
- # 安装依赖插件
-function npmInstall(){
-    npm install @types/node download got http-server qrcode-terminal request tough-cookie tslib tunnel stream zlib vm png-js axios date-fns ts-md5 dotenv crypto-js --prefix /scripts
-}
-
-function main(){
-    npmInstall
-    wuzhi_diy
-    # 京东到家
-    jddj_diy
-    # 柠檬
-    #panghu_diy
-    # 快手
-    ks_diy
-    # 柠檬_jd
-    #panghu999_jd_diy
-    # Wenmoux
-    # Wenmoux_diy
-    #hyzaw_diy
-    # 判断外网IP,运行自己的代码
-    jd_diy
-    
-    
-    #smiek2221_diy
-    #star261_diy
-    diycron
-    otherreplace
-}
-
-main
-
-
-
-    #panghu999_jd_diy
-    # Wenmoux
-    # Wenmoux_diy
-    #hyzaw_diy
-    # 判断外网IP,运行自己的代码
-    #curl icanhazip.com > ./ipstr.txt
-    #iptxt=$(tail -1 ./ipstr.txt)
-    #ipbd="152.70"
-    #result=$(echo $iptxt | grep "${ipbd}")
-    #if [[ "$result" != "" ]]
-    #then
-    #  echo "l107服务器，执行性化代码--------------------------------------------------------"
-    #  jd_diy
-    #else
-    #  echo "非l107服务器，不执行个性化代码---------------------------------------------------"
-    #fi    
-    
-    
 
