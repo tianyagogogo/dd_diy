@@ -171,8 +171,8 @@ async function sendNotify(text, desp, params = {}, author = '\n仅供用于学�
     return ;
    } 
  
-  if( !( text.indexOf('京东到家果园') >-1 && (  text.indexOf('已成熟') >-1 || desp.indexOf('已成熟') >-1 ) )  ){
-    console.log(' 京东到家果园未成熟，不发送通知！')
+  if(  text.indexOf('京东到家果园') >-1 &&  desp.indexOf('已成熟') <= -1 )  {
+    console.log('京东到家果园未成熟，不发送通知！')
     return ;
    } 
 
