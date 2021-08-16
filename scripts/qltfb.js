@@ -202,7 +202,7 @@ token=token.match(/uid%22%3A(\S+)%7D/)[1]
          await tasksign($.time)
          await jump(signdata1)
          await getread($.jumplink+'&uu=zg'+token)
-         await $.wait(10000)
+         await $.wait(20000)
          await sign(timestamp)
          await finsh(signdata)
      
