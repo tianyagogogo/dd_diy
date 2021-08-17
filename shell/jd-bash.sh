@@ -19,7 +19,7 @@ function diycron(){
     # 领现金兑换红包
     echo "59 23 * * 4,5 sleep 50; node /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 推粉宝
-    echo "*/31 6-23 * * * node /scripts/qltfb.js >> /scripts/logs/qltfb.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # echo "*/31 6-23 * * * node /scripts/qltfb.js >> /scripts/logs/qltfb.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
 }
 
