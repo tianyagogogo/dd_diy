@@ -105,7 +105,7 @@ function otherreplace(){
     #惊喜88红包
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
     # 全民开红包
-    sed -i "s/jd_redPacket.js/jd_redPacket_back.js/g" /scripts/docker/merged_list_file.sh
+    #sed -i "s/jd_redPacket.js/jd_redPacket_back.js/g" /scripts/docker/merged_list_file.sh
    
     
     #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
@@ -118,7 +118,7 @@ function otherreplace(){
     # 京喜财富岛提现
     #echo "59 11,12,23 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
     #  全民开红包
-    echo "3 0 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #echo "3 0 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
  # 安装依赖插件
