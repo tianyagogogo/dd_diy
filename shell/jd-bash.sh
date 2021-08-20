@@ -130,7 +130,7 @@ function main(){
     # 京东到家
     jddj_diy
     # 快手
-    ks_diy
+    #ks_diy
     jd_diy
     diycron
     otherreplace
