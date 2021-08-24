@@ -185,7 +185,7 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     return ;
    } 
  
-  if(  text.indexOf('京东到家果园') >-1 &&  desp.indexOf('已成熟') <= -1 )  {
+  if( text.indexOf('京东到家果园') >-1 &&  desp.indexOf('已成熟') <= -1 )  {
     console.log('京东到家果园未成熟，不发送通知！')
     return ;
    } 
@@ -195,12 +195,12 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     return ;
    }
 
-  if(desp.indexOf('请选择新商品进行制造') >-1 ){
+  if( text.indexOf('京喜工厂') >-1 && desp.indexOf('请选择新商品进行制造') >-1 ){
     console.log('请选择新商品进行制造，不发送通知！')
     return ;
    }
  
-  if(desp.indexOf('您忘了种植新的水果') >-1 ){
+  if( text.indexOf('东东农场') >-1 && desp.indexOf('您忘了种植新的水果') >-1 ){
     console.log('您忘了种植新的水果，不发送通知！')
     return ;
    }
