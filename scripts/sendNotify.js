@@ -210,7 +210,10 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     return ;
    }
   
-  
+  if(text.indexOf('京东签到图形验证') >-1 || text.indexOf('京东多合一签到') >-1){
+    console.log('签到类，不发送通知！')
+    return ;
+  }
   
   //提供6种通知
   desp += author;//增加作者信息，防止被贩卖等
