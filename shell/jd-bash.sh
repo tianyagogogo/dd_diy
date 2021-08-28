@@ -128,7 +128,7 @@ function main(){
     npmInstall
     wuzhi_diy
     # 京东到家
-    jddj_diy
+    # jddj_diy
     # 快手
     #ks_diy
     jd_diy
