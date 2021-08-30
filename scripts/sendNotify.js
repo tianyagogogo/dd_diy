@@ -185,7 +185,7 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     return ;
    } 
  
-  if( text.indexOf('cookie已失效') >-1 )  {
+  if( text.indexOf('cookie已失效') >-1 && text.indexOf('京东资产变动通知') = -1  )  {
     console.log(text +' 不发送通知')
     return ;
    } 
