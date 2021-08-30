@@ -50,6 +50,7 @@ function jddj_diy(){
 
 # wuzhi_diy
 function wuzhi_diy(){
+：'
     if [ ! -d "/wuzhi/" ]; then
         echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
         git clone -b main https://ghproxy.com/https://github.com/wuzhi04/MyActions.git /wuzhi
@@ -58,6 +59,7 @@ function wuzhi_diy(){
         git -C /wuzhi reset --hard
         git -C /wuzhi pull origin main --rebase
     fi
+  '
     cp -f /wuzhi/*.js /wuzhi/package.json /scripts
     cp -f /wuzhi/utils/*.js /scripts/utils
     cat /dev/null > /scripts/docker/merged_list_file.sh
