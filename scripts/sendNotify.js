@@ -178,7 +178,7 @@ if (process.env.PUSH_PLUS_USER) {
  * @param author 作者仓库等信息
  * @returns {Promise<unknown>}
  */
-async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie过期，点 https://jd.online189.cf/zheng/cookie/v2/index 扫码挂机') {
+async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie过期，点 https://jd.online189.cf/zheng/cookie/v2/index 挂机') {
   
    if( desp==null || desp=='' ){
     console.log('desp数据为空，不发送通知！')
