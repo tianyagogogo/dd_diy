@@ -200,6 +200,21 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     console.log('京东到家果园互助码信息，不发送通知！')
     return ;
    }
+  
+   if(text.indexOf('摇京豆') >-1 ){
+    console.log('摇京豆，不发送通知！')
+    return ;
+   }
+  
+   if(text.indexOf('5G超级盲盒') >-1 ){
+    console.log('5G超级盲盒，不发送通知！')
+    return ;
+   }
+  
+   if(text.indexOf('东东萌宠') >-1 &&  desp.indexOf('已领取红包,但未继续领养新的物品') > -1 ){
+    console.log('东东萌宠,已领取红包,但未继续领养新的物品，不发送通知！')
+    return ;
+   }
 
   if( text.indexOf('京喜工厂') >-1 && desp.indexOf('请选择新商品进行制造') >-1 ){
     console.log('请选择新商品进行制造，不发送通知！')
