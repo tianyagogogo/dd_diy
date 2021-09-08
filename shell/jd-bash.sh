@@ -125,7 +125,7 @@ function otherreplace(){
 
  # 安装依赖插件
 function npmInstall(){
-    npm install @types/node download got http-server qrcode-terminal request tough-cookie tslib tunnel stream zlib vm png-js axios date-fns ts-md5 dotenv crypto-js --prefix /scripts
+    npm install @types/node tslib stream zlib vm axios date-fns ts-md5 dotenv --prefix /scripts
 }
 
 function main(){
