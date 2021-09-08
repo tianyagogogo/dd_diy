@@ -14,6 +14,9 @@ function diycron(){
     echo "30 * * * * sh +x /scripts/docker/auto_help.sh collect |ts >> /scripts/logs/auto_help_collect.log 2>&1" >> /scripts/docker/merged_list_file.sh
     #东东工厂修改执行频率
     echo "*/43 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #京东变化
+    echo "0 21 * * * node /scripts/jd_bean_change_all.js >> /scripts/logs/jd_bean_change_all.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
     # 京东月资产变动通知
     #echo "10 7 1-31/7 * * node /scripts/jd_all_bean_change.js >> /scripts/logs/jd_all_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 领现金兑换红包
