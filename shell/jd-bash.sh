@@ -111,6 +111,9 @@ function otherreplace(){
     # 注释jd_bean_change_clean.js 不执行
     sed -i "s/jd_bean_change_clean.js/jd_bean_change_clean_back.js/g" /scripts/docker/merged_list_file.sh
     
+    # 注释京东试用 不执行
+    sed -i "s/jd_try_new.js/jd_try_new_back.js/g" /scripts/docker/merged_list_file.sh
+    
    
     
     #sed -i "s/F45CB4F07997DFE748E5656521A9034446A1568F6950206B0D44A5664662275D/14969C82894AE0B52E7154422CAA7A9C5362FE3CB08F5FFB67835E33E7B0C01D/g" /scripts/jd_cfd.js
