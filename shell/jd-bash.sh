@@ -9,13 +9,10 @@ function diycron(){
   # 修改docker_entrypoint.sh执行频率
   ln -sf /usr/local/bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint_mix.sh
   echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
-  echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
 
   #收集助力码
-  echo "30 * * * * sh +x /scripts/docker/auto_help.sh collect |ts >> /scripts/logs/auto_help_collect.log 2>&1" >> /scripts/docker/merged_list_file.sh
-  #东东工厂修改执行频率
-  echo "*/43 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
-  #京东变化
+  #echo "30 * * * * sh +x /scripts/docker/auto_help.sh collect |ts >> /scripts/logs/auto_help_collect.log 2>&1" >> /scripts/docker/merged_list_file.sh
+  #京豆变化
   echo "0 20 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change21.log 2>&1" >> /scripts/docker/merged_list_file.sh
   # 京东月资产变动通知
   echo "10 7 1-31/7 * * node /scripts/jd_all_bean_change.js >> /scripts/logs/jd_all_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
@@ -28,7 +25,6 @@ function diycron(){
 function jd_diy(){
    # cp -f /scripts/logs/jdJxncTokens.js /scripts
     cp -f /jd_diy/scripts/*.js /scripts
-    
     cat /dev/null > /scripts/docker/auto_help.sh
     cat /jd_diy/shell/auto_help.sh >> /scripts/docker/auto_help.sh
 }
@@ -136,15 +132,16 @@ function npmInstall(){
 }
 
 function main(){
-    npmInstall
-    wuzhi_diy
+    jd_diy
+    diycron
+    #otherreplace
+    
+    #npmInstall
+    #wuzhi_diy
     # 京东到家
     # jddj_diy
     # 快手
     #ks_diy
-    jd_diy
-    diycron
-    otherreplace
 }
 
 main
