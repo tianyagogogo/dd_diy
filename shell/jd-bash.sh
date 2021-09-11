@@ -133,13 +133,14 @@ function npmInstall(){
 }
 
 function main(){
-    npmInstall
+  
     wuzhi_diy
     jd_diy
     diycron
     otherreplace
     
     
+    # npmInstall
     # 京东到家
     # jddj_diy
     # 快手
