@@ -94,12 +94,11 @@ function otherreplace(){
     sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
     #惊喜88红包
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
-    # 全民开红包
-    #sed -i "s/jd_redPacket.js/jd_redPacket_back.js/g" /scripts/docker/merged_list_file.sh
     # 注释jd_bean_change_clean.js 不执行
     sed -i "s/jd_bean_change_clean.js/jd_bean_change_clean_back.js/g" /scripts/docker/merged_list_file.sh
     # 注释jd_redPacket.js 不执行
-    sed -i "s/jd_redPacket.js/jd_redPacket_bak.js.js/g" /scripts/docker/merged_list_file.sh
+    sed -ie '/jd_redPacket.js/d' /scripts/docker/merged_list_file.sh
+    # sed -i "s/jd_redPacket.js/jd_redPacket_bak.js.js/g" /scripts/docker/merged_list_file.sh
     echo "12 0-23/4 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 注释京东试用 不执行
     sed -i "s/jd_try_new.js/jd_try_new_back.js/g" /scripts/docker/merged_list_file.sh
