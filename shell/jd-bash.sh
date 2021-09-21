@@ -86,16 +86,7 @@ function ks_diy(){
 
 # 替换
 function otherreplace(){
-    echo " otherreplace "
-    #京喜工厂兑换失败提醒 一天只提醒一次
-    sed -i "s/production.status === 3/production.status === 3 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_dreamFactory.js
-    #东东农场未种植，一天只提醒一次
-    sed -i "s/farmInfo.treeState === 0/farmInfo.treeState === 0 \&\\&\ new Date().getHours() === 12/g" /scripts/jd_fruit.js
-    # 金融养猪，一天只提醒一次
-    sed -i "s/data.resultData.resultData.wished/data.resultData.resultData.wished \&\\&\ new Date().getHours() === 12/g" /scripts/jd_pigPet.js
-     # 关闭京东到家通知
-    #sed -i "s/let isNotify = true/let isNotify = false/g" /scripts/jddj_fruit.js
-    
+    echo " otherreplace "    
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Fruit.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Fruit.json/g" /scripts/jd_fruit.js
     sed -i "s/let helpAuthor = true/let helpAuthor = false/g" /scripts/jd_fruit.js
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/RandomShareCode\/git\/raw\/main\/JD_Cash.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/JD_Cash.json/g" /scripts/jd_cash.js
@@ -105,10 +96,11 @@ function otherreplace(){
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
     # 全民开红包
     #sed -i "s/jd_redPacket.js/jd_redPacket_back.js/g" /scripts/docker/merged_list_file.sh
-    
     # 注释jd_bean_change_clean.js 不执行
     sed -i "s/jd_bean_change_clean.js/jd_bean_change_clean_back.js/g" /scripts/docker/merged_list_file.sh
-    
+    # 注释jd_redPacket.js 不执行
+    sed -i "s/jd_redPacket.js/jd_redPacket_bak.js.js/g" /scripts/docker/merged_list_file.sh
+    echo "12 0-23/4 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
     # 注释京东试用 不执行
     sed -i "s/jd_try_new.js/jd_try_new_back.js/g" /scripts/docker/merged_list_file.sh
     
