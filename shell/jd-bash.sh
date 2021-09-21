@@ -134,10 +134,10 @@ function npmInstall(){
 
 function main(){
   
-    #wuzhi_diy
+    wuzhi_diy
     jd_diy
     diycron
-    # otherreplace
+    otherreplace
     
     
     # npmInstall
