@@ -191,6 +191,13 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
    } 
   
   
+    if( text.indexOf('省钱大赢家之翻翻乐') >-1   )  {
+      console.log(text +' 不发送通知')
+      return ;
+   } 
+  
+  
+  
   if( text.indexOf('京东到家果园') >-1 &&  desp.indexOf('已成熟') <= -1 )  {
     console.log('京东到家果园未成熟，不发送通知！')
     return ;
@@ -235,6 +242,8 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     console.log('签到类，不发送通知！')
     return ;
   }
+  
+  
   
   //提供6种通知
   desp += author;//增加作者信息，防止被贩卖等
