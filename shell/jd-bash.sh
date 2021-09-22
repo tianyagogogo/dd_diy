@@ -74,16 +74,24 @@ function otherreplace(){
     
     # 注释jd_bean_change_clean.js 不执行
     sed -ie '/jd_bean_change_clean.js/d' /scripts/docker/merged_list_file.sh
+    
     # 注释jd_redPacket.js 不执行
     sed -ie '/jd_redPacket.js/d' /scripts/docker/merged_list_file.sh
     echo "12 0-23/4 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
     # 注释京东试用 不执行
     sed -i "s/jd_try_new.js/jd_try_new_back.js/g" /scripts/docker/merged_list_file.sh
+    
     # 注释京喜财富岛提现
     sed -ie '/jx_cfdtx.js/d' /scripts/docker/merged_list_file.sh
+    
     #京豆变化
     sed -ie '/jd_bean_change.js/d' /scripts/docker/merged_list_file.sh
     echo "0 9,20 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
+    #东东工厂
+    sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
+    echo "26 * * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
  
 }
 
