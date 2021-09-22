@@ -54,6 +54,11 @@ function wuzhi_diy(){
   
     cp -f /wuzhi/*.js /wuzhi/package.json /scripts
     cp -f /wuzhi/utils/*.js /scripts/utils
+    if [ ! -d /scripts/function  ];then
+      mkdir /scripts/function
+    else
+      echo dir exist
+    fi
     cp -f /wuzhi/function/*.js /scripts/function
     cat /dev/null > /scripts/docker/merged_list_file.sh
     cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
