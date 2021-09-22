@@ -101,10 +101,15 @@ function otherreplace(){
 }
 
 
+ # 安装依赖插件
+function npmInstall(){
+      echo "npm install 安装最新依赖"
+      npm install --prefix /scripts
+}
 
 function main(){
-  
     wuzhi_diy
+    npmInstall
     jd_diy
     diycron
     otherreplace
