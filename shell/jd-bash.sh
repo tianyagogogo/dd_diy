@@ -56,7 +56,6 @@ function wuzhi_diy(){
     cp -f /wuzhi/utils/*.js /scripts/utils
     cat /dev/null > /scripts/docker/merged_list_file.sh
     cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
-    sed -i "s/jx_cfdtx.js/jx_cfdtx_bak.js/g" /scripts/docker/merged_list_file.sh
 }
 
 
@@ -91,7 +90,7 @@ function otherreplace(){
     
     #东东工厂
     sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
-    echo "26 * * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
  
 }
 
