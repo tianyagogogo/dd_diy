@@ -1,6 +1,12 @@
 #!/bin/sh
 
 function diycron(){
+  
+   for jsname in /scripts/jddj_*.js ; do
+        jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
+        test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
+   done
+  
 
   # 修改docker_entrypoint.sh执行频率
   ln -sf /usr/local/bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint_mix.sh
@@ -29,7 +35,7 @@ function jddj_diy(){
     ## 克隆jddj_diy仓库
     if [ ! -d "/jddj_diy/" ]; then
         echo "未检查到克隆jddj_diy仓库，初始化下载相关脚本..."
-        git clone -b main https://ghproxy.com/https://github.com/717785320/JDDJ.git /jddj_diy
+        git clone -b main https://ghproxy.com/https://github.com/passerby-b/JDDJ.git /jddj_diy
     else
         echo "更新jddj_diy脚本相关文件..."
         git -C /jddj_diy reset --hard
@@ -111,6 +117,7 @@ function npmInstall(){
 function main(){
     wuzhi_diy
     npmInstall
+    jddj_diy
     jd_diy
     diycron
     otherreplace
