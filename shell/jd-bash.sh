@@ -19,7 +19,7 @@ function diycron(){
   # 京东月资产变动通知
   echo "10 7 1-31/7 * * node /scripts/jd_all_bean_change.js >> /scripts/logs/jd_all_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
   # 领现金兑换红包
-  echo "59 23 * * 4,5 sleep 59.7; node conc /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1" >> /scripts/docker/merged_list_file.sh
+  sleep 30 ; echo "59 23 * * 4,5 sleep 59.7; node conc /scripts/jd_cash_exchange.js >> /scripts/logs/jd_cash_exchange.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
 }
 
@@ -107,8 +107,6 @@ function otherreplace(){
     sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
     echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
-    # 将需要并发的任务去掉延时
-    sed -i "s/sleep \$((RANDOM % 40)); spnode conc/spnode conc/g" /scripts/docker/merged_list_file.sh
 }
 
 
