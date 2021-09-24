@@ -110,10 +110,6 @@ function otherreplace(){
 }
 
 
-function setSleep(){
-    echo "设置随机延迟参数..."
-    sed -i "/\(jd_bean_sign.js\|jd_blueCoin.js\|jd_joy_reward.js\|jd_joy_steal.js\|jd_joy_feedPets.js\|jd_car_exchange.js\\|jd_cash_exchange.js\)/!s/node/sleep \$((RANDOM % \ 40)); node/g" $mergedListFile
-}
 
 
  # 安装依赖插件
@@ -129,7 +125,6 @@ function main(){
     jd_diy
     diycron
     otherreplace
-    setSleep
 }
 
 main
