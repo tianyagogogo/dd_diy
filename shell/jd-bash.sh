@@ -97,7 +97,9 @@ function otherreplace(){
     sed -ie '/jd_try_new.js/d' /scripts/docker/merged_list_file.sh
     
     # 注释京喜财富岛提现
-    # sed -ie '/jx_cfdtx.js/d' /scripts/docker/merged_list_file.sh
+    sed -ie '/jx_cfdtx.js/d' /scripts/docker/merged_list_file.sh
+    sed -ie '/jd_cfdtx.js/d' /scripts/docker/merged_list_file.sh
+    echo "59 23,11 * * * sleep 59.5 node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #京豆变化
     sed -ie '/jd_bean_change.js/d' /scripts/docker/merged_list_file.sh
