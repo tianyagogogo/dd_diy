@@ -69,6 +69,7 @@ function wuzhi_diy(){
     fi
     cp -f /wuzhi/function/*.js /scripts/function
     cat /dev/null > /scripts/docker/merged_list_file.sh
+    cp -f /jd_diy/scripts/*.js /scripts
     cat /wuzhi/docker/crontab_list.sh >> /scripts/docker/merged_list_file.sh
 }
 
