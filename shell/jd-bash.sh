@@ -112,6 +112,9 @@ function otherreplace(){
     #注释jd_cfd_loop
     sed -ie '/jd_cfd_loop.js/d' /scripts/docker/merged_list_file.sh
     
+    #注释jd_ddwj.js
+    sed -ie '/jd_ddwj.js/d' /scripts/docker/merged_list_file.sh
+    
 }
 
 
