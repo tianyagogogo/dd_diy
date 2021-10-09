@@ -108,9 +108,7 @@ function otherreplace(){
     #东东工厂
     sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
     echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
-    
-    #注释jd_ddwj.js
-    sed -ie '/jd_ddwj.js/d' /scripts/docker/merged_list_file.sh
+
     
 }
 
