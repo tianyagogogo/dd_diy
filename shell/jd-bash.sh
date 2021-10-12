@@ -110,8 +110,8 @@ function otherreplace(){
     echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
   
     #jd_cfd_loop.js
-    sed -ie '/jd_cfd_loop.js/d' /scripts/docker/merged_list_file.sh
-    echo "26 1,13 * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #sed -ie '/jd_cfd_loop.js/d' /scripts/docker/merged_list_file.sh
+    #echo "26 1,13 * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
 }
 
