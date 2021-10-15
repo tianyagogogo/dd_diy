@@ -52,7 +52,7 @@ function jddj_diy(){
 function wuzhi_diy(){
     if [ ! -d "/wuzhi/" ]; then
         echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
-        git clone -b main https://ghproxy.com/https://github.com/wuzhi04/MyActions.git /wuzhi
+        git clone -b main https://ghproxy.com/https://github.com/wuzhi05/MyActions.git /wuzhi
     else
         echo "更新wuzhi脚本相关文件..."
         git -C /wuzhi reset --hard
