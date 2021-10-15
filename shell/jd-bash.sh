@@ -25,7 +25,6 @@ function diycron(){
 
 
 function jd_diy(){
-   # cp -f /scripts/logs/jdJxncTokens.js /scripts
     cp -f /jd_diy/scripts/*.js /scripts
     cat /dev/null > /scripts/docker/auto_help.sh
     cat /jd_diy/shell/auto_help.sh >> /scripts/docker/auto_help.sh
@@ -125,8 +124,8 @@ function npmInstall(){
 }
 
 function main(){
-    wuzhi_diy
-    npmInstall
+    # wuzhi_diy
+    # npmInstall
     jddj_diy
     jd_diy
     diycron
