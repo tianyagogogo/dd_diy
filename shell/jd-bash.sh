@@ -4,7 +4,7 @@ function diycron(){
 
   # 修改docker_entrypoint.sh执行频率
   ln -sf /usr/local/bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint_mix.sh
-  echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
+  # echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
   echo "18 */1 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
   
   
@@ -93,12 +93,12 @@ function otherreplace(){
     echo "12 0-23/4 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     # 注释京东试用 不执行
-    sed -ie '/jd_try_new.js/d' /scripts/docker/merged_list_file.sh
+    # sed -ie '/jd_try_new.js/d' /scripts/docker/merged_list_file.sh
     
     # 注释京喜财富岛提现
-    sed -ie '/jx_cfdtx.js/d' /scripts/docker/merged_list_file.sh
-    sed -ie '/jd_cfdtx.js/d' /scripts/docker/merged_list_file.sh
-    echo "59 11,12,23 * * * node conc /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #sed -ie '/jx_cfdtx.js/d' /scripts/docker/merged_list_file.sh
+    #sed -ie '/jd_cfdtx.js/d' /scripts/docker/merged_list_file.sh
+    #echo "59 11,12,23 * * * node conc /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #京豆变化
     sed -ie '/jd_bean_change.js/d' /scripts/docker/merged_list_file.sh
