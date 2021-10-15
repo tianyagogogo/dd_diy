@@ -83,14 +83,14 @@ function otherreplace(){
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_red.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_red.json/g" /scripts/jd_redPacket.js
     
     #惊喜88红包
-    sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
+    #sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
     
     # 注释jd_bean_change_clean.js 不执行
-    sed -ie '/jd_bean_change_clean.js/d' /scripts/docker/merged_list_file.sh
+    # sed -ie '/jd_bean_change_clean.js/d' /scripts/docker/merged_list_file.sh
     
     # 注释jd_redPacket.js 不执行
-    sed -ie '/jd_redPacket.js/d' /scripts/docker/merged_list_file.sh
-    echo "12 0-23/4 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #sed -ie '/jd_redPacket.js/d' /scripts/docker/merged_list_file.sh
+    #echo "12 0-23/4 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     # 注释京东试用 不执行
     # sed -ie '/jd_try_new.js/d' /scripts/docker/merged_list_file.sh
@@ -105,8 +105,8 @@ function otherreplace(){
     echo "0 9,20 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #东东工厂
-    sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
-    echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
+    # echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
   
     #jd_cfd_loop.js
     #sed -ie '/jd_cfd_loop.js/d' /scripts/docker/merged_list_file.sh
