@@ -48,6 +48,7 @@ function main(){
     wuzhi_diy
     jd_diy
     otherreplace
+    npmInstall
 }
 
 main
