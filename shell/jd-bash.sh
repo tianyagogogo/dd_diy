@@ -113,10 +113,7 @@ function otherreplace(){
     # 删除开卡任务
     sed -ie '/jd_opencard/d' /scripts/docker/merged_list_file.sh
     
-    # 城城分现金
-    sed -ie '/jd_CityNew.js/d' /scripts/docker/merged_list_file.sh
-    echo "0 0 * * * node conc /scripts/jd_CityNew.js >> /scripts/logs/jd_CityNew.log 2>&1" >> /scripts/docker/merged_list_file.sh
-
+   
 }
 
 
