@@ -141,6 +141,7 @@ function npmInstall(){
 
 function main(){
     wuzhi_diy
+    smiek2221
     npmInstall
     jddj_diy
     jd_diy
