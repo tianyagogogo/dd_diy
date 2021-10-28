@@ -72,6 +72,20 @@ function wuzhi_diy(){
 }
 
 
+# smiek2221
+function smiek2221(){
+    if [ ! -d "/smiek2221/" ]; then
+        echo "未检查到smiek2221仓库脚本，初始化下载相关脚本..."
+        git clone -b master https://ghproxy.com/https://github.com/smiek2221/scripts.git /smiek2221
+    else
+        echo "更新smiek2221脚本相关文件..."
+        git -C /smiek2221 reset --hard
+        git -C /smiek2221 pull origin master --rebase
+    fi
+    cp -f /smiek2221/*.js /scripts
+    echo "1 0,12,18 * * * node /scripts/gua_1111RedEnvelope.js >> /scripts/logs/gua_1111RedEnvelope.log 2>&1" >> /scripts/docker/merged_list_file.sh
+}
+
 
 # 替换
 function otherreplace(){
