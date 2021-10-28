@@ -83,7 +83,7 @@ function smiek2221(){
         git -C /smiek2221 pull origin master --rebase
     fi
     cp -f /smiek2221/*.js /scripts
-    echo "1 0,12,18 * * * node /scripts/gua_1111RedEnvelope.js >> /scripts/logs/gua_1111RedEnvelope.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "0 0,12,18 * * * node /scripts/gua_1111RedEnvelope.js >> /scripts/logs/gua_1111RedEnvelope.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 
