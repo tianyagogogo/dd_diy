@@ -144,7 +144,7 @@ function main(){
     npmInstall
     jddj_diy
     jd_diy
-    smiek2221
+   # smiek2221
     diycron
     otherreplace
 }
