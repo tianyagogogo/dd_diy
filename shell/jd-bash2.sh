@@ -44,7 +44,7 @@ function otherreplace(){
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
 
     # 城城分现金
-    echo "0 0 * * * node conc /scripts/jd_CityNew.js >> /scripts/logs/jd_CityNew.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    # echo "0 0 * * * node conc /scripts/jd_CityNew.js >> /scripts/logs/jd_CityNew.log 2>&1" >> /scripts/docker/merged_list_file.sh
 
 }
 
