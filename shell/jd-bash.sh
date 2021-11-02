@@ -98,8 +98,7 @@ function otherreplace(){
     #city
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_cityShareCodes.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /scripts/jd_CityNew.js
     # 惊喜工厂
-    sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/jxfactory\/query\/0/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_dream.json/g" /scripts/jd_dreamFactory.js
-
+    sed -i "s/http:\/\/share.turinglabs.net\/api\/v3\/jxfactory\/query\/0/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_dream.json/g" /scripts/jd_dreamFactory.js
     #惊喜88红包
     sed -i "s/https:\/\/wuzhi03.coding.net\/p\/dj\/d\/shareCodes\/git\/raw\/main\/jd_redhb.json/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_redhb.json/g" /scripts/jd_jxlhb.js
     
