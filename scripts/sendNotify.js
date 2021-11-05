@@ -230,7 +230,7 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     return ;
    }
 
-  if( text.indexOf('京喜工厂') >-1 && desp.indexOf('请选择新商品进行制造') >-1 ){
+  if( desp.indexOf('请选择新商品进行制造') >-1 ){
     console.log('请选择新商品进行制造，不发送通知！')
     return ;
    }
