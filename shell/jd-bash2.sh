@@ -30,6 +30,21 @@ function wuzhi_diy(){
 }
 
 
+# faker3
+function faker3_diy(){
+    if [ ! -d "/faker3/" ]; then
+        echo "未检查到faker3仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://github.com/shufflewzc/faker3.git /faker3
+    else
+        echo "更新faker3脚本相关文件..."
+        git -C /faker3 reset --hard
+        git -C /faker3 pull origin main --rebase
+    fi
+  
+    cp -f /faker3/* /scripts
+
+}
+
 # 替换
 function otherreplace(){
     echo " otherreplace "    
@@ -55,11 +70,15 @@ function npmInstall(){
       npm install --prefix /scripts
 }
 
+
+
+
 function main(){
-    wuzhi_diy
-    jd_diy
-    otherreplace
-    npmInstall
+    faker3_diy
+    #wuzhi_diy
+    #jd_diy
+    #otherreplace
+    #npmInstall
 }
 
 main
