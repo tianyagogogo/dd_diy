@@ -51,7 +51,7 @@ function faker3_diy(){
     fi
     cp -f /faker3/function/*.js /scripts/function
     
-    for jsname in /scripts/jd_*.js,/scripts/jddj_*.js ; do
+    for jsname in /scripts/jd_*.js ; do
         jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
         test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
    done
