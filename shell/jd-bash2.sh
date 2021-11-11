@@ -41,7 +41,20 @@ function faker3_diy(){
         git -C /faker3 pull origin main --rebase
     fi
   
-    cp -f /faker3/* /scripts
+    cp -f /faker3/*.js /faker3/package.json /scripts
+    cp -f /faker3/utils/*.js /scripts/utils
+    cat /dev/null > /scripts/docker/merged_list_file.sh
+     if [ ! -d /scripts/function  ];then
+      mkdir /scripts/function
+    else
+      echo dir exist
+    fi
+    cp -f /faker3/function/*.js /scripts/function
+    
+    for jsname in /scripts/jd_*.js,/scripts/jddj_*.js ; do
+        jsnamecron="$(cat $jsname | grep -oE "/?/?cron \".*\"" | cut -d\" -f2)"
+        test -z "$jsnamecron" || echo "$jsnamecron node $jsname >> /scripts/logs/$(echo $jsname | cut -d/ -f3).log 2>&1" >> /scripts/docker/merged_list_file.sh
+   done
 
 }
 
