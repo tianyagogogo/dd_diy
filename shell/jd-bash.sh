@@ -130,7 +130,7 @@ function npmInstall(){
       echo "npm install 安装最新依赖检测"
       file1=/package_back.json
       file2=/wuzhi/package.json
-      diff $file1 $file2 > /dev/null
+      md5sum $file1 $file2 > /dev/null
       if [ $0 == 0 ]; then
         echo "package.json未更新，不运行npm install"
       else
