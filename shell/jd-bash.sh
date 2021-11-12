@@ -127,6 +127,8 @@ function otherreplace(){
     # 删除开卡任务
     sed -ie '/jd_opencard/d' /scripts/docker/merged_list_file.sh
     
+    # 删除 京东极速版红包(黑号了)
+    sed -ie '/jd_speed_redpocke/d' /scripts/docker/merged_list_file.sh
    
 }
 
