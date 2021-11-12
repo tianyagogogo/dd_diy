@@ -130,13 +130,17 @@ function npmInstall(){
       echo "npm install 安装最新依赖检测"
       file1=/package_back.json
       file2=/wuzhi/package.json
-      md5sum $file1 $file2 > /dev/null
-      if [ $0 == 0 ]; then
-        echo "package.json未更新，不运行npm install"
+      md5file1=`md5 $file1`
+      md5file2=`md5 $file2`
+      if [ "$md5file1" = "$md5file2" ]
+      then
+          echo "Files have the same content"
       else
-        echo "package.json有更新，npm install 安装最新依赖"
-        npm install --prefix /scripts
+          echo "Files have NOT the same content"
       fi
+      
+      
+    
       
       
       
