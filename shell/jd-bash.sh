@@ -130,9 +130,10 @@ function npmInstall(){
       echo "npm install 安装最新依赖检测"
       md5sum -c -s /packagejson.md5
       if [ $? == 0 ]; then
-        echo "Both file are same"
+        echo "packagejson无更新，跳过npm install"
       else
-        echo "Both file are different"
+        echo "packagejson更新，执行npm install"
+        npm install --prefix /scripts
       fi
 
 }
