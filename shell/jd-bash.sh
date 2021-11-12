@@ -128,8 +128,9 @@ function otherreplace(){
  # 安装依赖插件
 function npmInstall(){
       echo "npm install 安装最新依赖检测"
-      echo `md5sum -c /packagejson.md5`
-      if [ `md5sum -c /packagejson.md5` = "OK" ]
+      result = `md5sum -c /packagejson.md5`
+      echo $result
+      if [ $result = "OK" ]
       then 
          echo "Files have the same content"
       else
