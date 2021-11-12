@@ -129,8 +129,8 @@ function otherreplace(){
 function npmInstall(){
       echo "npm install 安装最新依赖检测"
       md5sum /wuzhi/package.json > /packagejson_new.md5
-      file1 = /packagejson_new.md5
-      file2 = /packagejson_new.md5
+      file1=/packagejson.md5
+      file2=/packagejson_new.md5
       diff $file1 $file2 > /dev/null
       if [ $0 == 0 ]; then
         echo "Both file are same"
