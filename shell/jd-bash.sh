@@ -130,12 +130,17 @@ function npmInstall(){
       echo "npm install 安装最新依赖检测"
       file1=/package_back.json
       file2=/wuzhi/package.json
-      md5file1=`md5 $file1`
-      md5file2=`md5 $file2`
+      md5file1=`md5sum $file1`
+      md5file2=`md5sum $file2`
+      
       if [ "$md5file1" = "$md5file2" ]
       then
+          echo "$md5file1" 
+          echo "$md5file2"
           echo "Files have the same content"
       else
+          echo "$md5file1" 
+          echo "$md5file2"
           echo "Files have NOT the same content"
       fi
       
