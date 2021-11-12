@@ -128,13 +128,16 @@ function otherreplace(){
  # 安装依赖插件
 function npmInstall(){
       echo "npm install 安装最新依赖检测"
-      `md5sum -c /packagejson.md5`
-      if [ $0 = "OK" ]
-      then 
-         echo "Files have the same content"
+      md5sum /wuzhi/package.json > /packagejson_new.md5
+      file1 = /packagejson_new.md5
+      file2 = /packagejson_new.md5
+      diff $file1 $file2 > /dev/null
+      if [ $0 == 0 ]; then
+        echo "Both file are same"
       else
-         echo "Files have NOT the same content"
-      fi    
+        echo "Both file are different"
+      fi
+
 }
 
 function main(){
