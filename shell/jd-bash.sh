@@ -50,8 +50,8 @@ function jddj_diy(){
 
 # wuzhi_diy
 function wuzhi_diy(){
-    # 拷贝package.json 便于对比是否运行npm install
-    cp -f /wuzhi/package.json /package_back.json
+    # package.json生成md5文件
+    md5sum /wuzhi/package.json > /packagejson.md5
 
     if [ ! -d "/wuzhi/" ]; then
         echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
@@ -128,27 +128,13 @@ function otherreplace(){
  # 安装依赖插件
 function npmInstall(){
       echo "npm install 安装最新依赖检测"
-      file1=/package_back.json
-      file2=/wuzhi/package.json
-      md5file1=`md5sum $file1`
-      md5file2=`md5sum $file2`
-      
-      if [ "$md5file1" = "$md5file2" ]
-      then
-          echo "$md5file1" 
-          echo "$md5file2"
-          echo "Files have the same content"
+      echo `md5sum -c /packagejson.md5`
+      if [ `md5sum -c /packagejson.md5` ='OK' ]
+      then 
+         echo "Files have the same content"
       else
-          echo "$md5file1" 
-          echo "$md5file2"
-          echo "Files have NOT the same content"
-      fi
-      
-      
-    
-      
-      
-      
+         echo "Files have NOT the same content"
+      fi    
 }
 
 function main(){
