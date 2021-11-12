@@ -50,6 +50,9 @@ function jddj_diy(){
 
 # wuzhi_diy
 function wuzhi_diy(){
+    # 拷贝package.json 便于对比是否运行npm install
+    cp -f /wuzhi/package.json /package_back.json
+
     if [ ! -d "/wuzhi/" ]; then
         echo "未检查到wuzhi仓库脚本，初始化下载相关脚本..."
         git clone -b main https://ghproxy.com/https://github.com/wuzhi05/MyActions.git /wuzhi
@@ -122,12 +125,21 @@ function otherreplace(){
 }
 
 
-
-
  # 安装依赖插件
 function npmInstall(){
-      echo "npm install 安装最新依赖"
-      npm install --prefix /scripts
+      echo "npm install 安装最新依赖检测"
+      file1=/package_back.json
+      file2=/wuzhi/package.json
+      diff $file1 $file2 > /dev/null
+      if [ $0 == 0 ]; then
+        echo "package.json未更新，不运行npm install"
+      else
+        echo "package.json有更新，npm install 安装最新依赖"
+        npm install --prefix /scripts
+      fi
+      
+      
+      
 }
 
 function main(){
