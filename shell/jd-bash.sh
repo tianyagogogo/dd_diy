@@ -117,6 +117,8 @@ function otherreplace(){
     
     # 删除 京东极速版红包(黑号了)
     sed -ie '/jd_speed_redpocke/d' /scripts/docker/merged_list_file.sh
+    # 删除 财富岛热气球接待
+    sed -ie '/jd_cfd_loop/d' /scripts/docker/merged_list_file.sh
    
     # 修改饭粒运行时间
     sed -ie '/jd_fanli/d' /scripts/docker/merged_list_file.sh
