@@ -115,8 +115,13 @@ function otherreplace(){
     # 删除开卡任务
     sed -ie '/jd_opencard/d' /scripts/docker/merged_list_file.sh
     
-    # 删除 京东极速版红包(黑号了)
+    # 京东极速版红包(黑号了)
     sed -ie '/jd_speed_redpocke/d' /scripts/docker/merged_list_file.sh
+    
+    # 极速版签到
+    sed -ie '/jd_speed_sign/d' /scripts/docker/merged_list_file.sh
+    echo "25 10,21 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
     # 删除 财富岛热气球接待
     sed -ie '/jd_cfd_loop/d' /scripts/docker/merged_list_file.sh
    
