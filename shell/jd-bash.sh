@@ -120,7 +120,7 @@ function otherreplace(){
     
     # 极速版签到
     sed -ie '/jd_speed_sign/d' /scripts/docker/merged_list_file.sh
-    echo "25 10,21 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "25 13 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     # 删除 财富岛热气球接待
     sed -ie '/jd_cfd_loop/d' /scripts/docker/merged_list_file.sh
