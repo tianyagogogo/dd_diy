@@ -10,7 +10,7 @@ function jd_diy(){
 function main(){
    jd_diy
    cat /dev/null > /scripts/docker/merged_list_file.sh
-   echo "25 16 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
+   echo "25 15 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
 }
 
 main
