@@ -132,8 +132,8 @@ function otherreplace(){
     sed -ie '/jd_cfd_loop/d' /scripts/docker/merged_list_file.sh
    
     # 修改饭粒运行时间
-    sed -ie '/jd_fanli/d' /scripts/docker/merged_list_file.sh
-    echo "0 0,18 * * * node /scripts/jd_fanli.js >> /scripts/logs/jd_fanli.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    #sed -ie '/jd_fanli/d' /scripts/docker/merged_list_file.sh
+    #echo "0 0,18 * * * node /scripts/jd_fanli.js >> /scripts/logs/jd_fanli.log 2>&1" >> /scripts/docker/merged_list_file.sh
    
 }
 
