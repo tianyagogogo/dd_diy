@@ -140,7 +140,7 @@ function otherreplace(){
     echo "this is my vps " 
     # 极速版签到
     sed -ie '/jd_speed_sign/d' /scripts/docker/merged_list_file.sh
-    echo "11 10 */7 * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "11 6 */7 * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
    fi
    
 }
