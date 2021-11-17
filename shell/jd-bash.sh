@@ -132,7 +132,7 @@ function otherreplace(){
     # 京东极速版红包
     sed -ie '/jd_speed_redpocke/d' /scripts/docker/merged_list_file.sh
     # 发财挖宝
-    sed -ie '/jd_fcwb.js/d' /scripts/docker/merged_list_file.sh
+    sed -ie '/jd_fcwb/d' /scripts/docker/merged_list_file.sh
     # 省钱大赢家翻翻乐
     sed -ie '/jd_big_winner/d' /scripts/docker/merged_list_file.sh
     # 推一推
