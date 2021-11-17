@@ -101,7 +101,7 @@ function otherreplace(){
     # sed -ie '/jd_try_new.js/d' /scripts/docker/merged_list_file.sh
     
     # 注释京喜财富岛提现
-    #sed -ie '/jd_cfdtx.js/d' /scripts/docker/merged_list_file.sh
+    sed -ie '/jd_cfdtx.js/d' /scripts/docker/merged_list_file.sh
     #echo "59 11,12,23 * * * node /scripts/jd_cfdtx.js >> /scripts/logs/jd_cfdtx.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #京豆变化
@@ -109,17 +109,11 @@ function otherreplace(){
     echo "0 9,20 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #东东工厂
-     #sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
-     #echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
+    echo "26 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1" >> /scripts/docker/merged_list_file.sh
   
     # 删除开卡任务
     sed -ie '/jd_opencard/d' /scripts/docker/merged_list_file.sh
-    
-
-    
-    # 极速版签到
-    sed -ie '/jd_speed_sign/d' /scripts/docker/merged_list_file.sh
-    echo "11 10 */7 * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     # 删除 财富岛热气球接待
     sed -ie '/jd_cfd_loop/d' /scripts/docker/merged_list_file.sh
@@ -138,6 +132,18 @@ function otherreplace(){
     # 推一推
     sed -ie '/jd_tyt/d' /scripts/docker/merged_list_file.sh
     
+    
+    
+    
+   # -----------------------------自己服务器环境判断（特殊设置）---------------------------------
+   if [ ! -d "/root/jd_scripts/logs/myFlag.txt"]; then
+    echo "this is my vps " 
+    # 极速版签到
+    sed -ie '/jd_speed_sign/d' /scripts/docker/merged_list_file.sh
+    echo "11 10 */7 * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     
+     
+   fi
    
 }
 
