@@ -136,7 +136,7 @@ function otherreplace(){
     
     
    # -----------------------------自己服务器环境判断（特殊设置）---------------------------------
-   if [ -f "/root/jd_scripts/logs/myFlag.txt"]; then
+   if [[ -f /root/jd_scripts/logs/myFlag.txt ]]; then
     echo "this is my vps " 
     # 极速版签到
     sed -ie '/jd_speed_sign/d' /scripts/docker/merged_list_file.sh
