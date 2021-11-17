@@ -115,8 +115,7 @@ function otherreplace(){
     # 删除开卡任务
     sed -ie '/jd_opencard/d' /scripts/docker/merged_list_file.sh
     
-    # 京东极速版红包(黑号了)
-    sed -ie '/jd_speed_redpocke/d' /scripts/docker/merged_list_file.sh
+
     
     # 极速版签到
     sed -ie '/jd_speed_sign/d' /scripts/docker/merged_list_file.sh
@@ -128,6 +127,12 @@ function otherreplace(){
     # 修改饭粒运行时间
     #sed -ie '/jd_fanli/d' /scripts/docker/merged_list_file.sh
     #echo "0 0,18 * * * node /scripts/jd_fanli.js >> /scripts/logs/jd_fanli.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
+    #------------------------------黑号删除脚本-----------------------------------------
+    # 京东极速版红包
+    sed -ie '/jd_speed_redpocke/d' /scripts/docker/merged_list_file.sh
+    # 发财挖宝
+    sed -ie '/jd_fcwb.js/d' /scripts/docker/merged_list_file.sh
    
 }
 
