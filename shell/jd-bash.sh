@@ -123,17 +123,18 @@ function otherreplace(){
     #sed -ie '/jd_fanli/d' /scripts/docker/merged_list_file.sh
     #echo "0 0,18 * * * node /scripts/jd_fanli.js >> /scripts/logs/jd_fanli.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
+     # 发财挖宝
+    sed -ie '/jd_fcwb/d' /scripts/docker/merged_list_file.sh
+    echo "5 7 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    
     #------------------------------黑号删除脚本-----------------------------------------
     # 京东极速版红包
     sed -ie '/jd_speed_redpocke/d' /scripts/docker/merged_list_file.sh
-    # 发财挖宝
-    sed -ie '/jd_fcwb/d' /scripts/docker/merged_list_file.sh
     # 省钱大赢家翻翻乐
     sed -ie '/jd_big_winner/d' /scripts/docker/merged_list_file.sh
     # 推一推
     sed -ie '/jd_tyt/d' /scripts/docker/merged_list_file.sh
-    
-    
+
     
     
    # -----------------------------自己服务器环境判断（特殊设置）---------------------------------
