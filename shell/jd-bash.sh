@@ -141,7 +141,7 @@ function otherreplace(){
     echo "11 6 */7 * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
      # 发财挖宝
      sed -ie '/jd_fcwb/d' /scripts/docker/merged_list_file.sh
-     #echo "5 7 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     echo "5 8 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1" >> /scripts/docker/merged_list_file.sh
    fi
    
 }
