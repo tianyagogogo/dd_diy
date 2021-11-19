@@ -15,7 +15,7 @@ function main(){
    echo "25 12 * * * sh +x /scripts/logs/synck.sh node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
    
    # 极速版红包
-   echo "25 6 * * * sh +x /scripts/logs/synck.sh node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1" >> /scripts/docker/merged_list_file.sh
+   #echo "25 6 * * * sh +x /scripts/logs/synck.sh node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1" >> /scripts/docker/merged_list_file.sh
    
 }
 
