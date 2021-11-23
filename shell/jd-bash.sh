@@ -62,7 +62,7 @@ function wuzhi_diy(){
         git -C /wuzhi pull origin main --rebase
     fi
   
-    cp -f /wuzhi/*.js /wuzhi/package.json /scripts
+    cp -f /wuzhi/*.js /wuzhi/package.json /wuzhi/sendNotify.py /scripts
     cp -f /wuzhi/utils/*.js /scripts/utils
     if [ ! -d /scripts/function  ];then
       mkdir /scripts/function
