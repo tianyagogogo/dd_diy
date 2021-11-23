@@ -25,7 +25,7 @@ function diycron(){
 
 
 function jd_diy(){
-    cp -f /jd_diy/scripts/*.js /scripts
+    cp -f /jd_diy/scripts/* /scripts
     cat /dev/null > /scripts/docker/auto_help.sh
     cat /jd_diy/shell/auto_help.sh >> /scripts/docker/auto_help.sh
 }
