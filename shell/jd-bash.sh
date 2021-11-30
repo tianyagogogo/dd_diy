@@ -75,6 +75,20 @@ function wuzhi_diy(){
 }
 
 
+# faker3_diy
+function faker3_diy(){
+    if [ ! -d "/faker3/" ]; then
+        echo "未检查到faker3仓库脚本，初始化下载相关脚本..."
+        git clone -b main https://ghproxy.com/https://github.com/shufflewzc/faker3.git /faker3
+    else
+        echo "更新wuzhi脚本相关文件..."
+        git -C /faker3 reset --hard
+        git -C /faker3 pull origin main --rebase
+    fi
+    cp -f /faker3/jd_bean_change.js /scripts
+}
+
+
 # 替换
 function otherreplace(){
     echo " otherreplace "    
@@ -167,6 +181,7 @@ function npmInstall(){
 
 function main(){
     wuzhi_diy
+    faker3_diy
     npmInstall
     jddj_diy
     jd_diy
