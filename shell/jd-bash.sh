@@ -123,7 +123,7 @@ function otherreplace(){
     
     #京豆变化
     sed -ie '/jd_bean_change.js/d' /scripts/docker/merged_list_file.sh
-    echo "0 9,20 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
+    echo "15 9,20 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
     #东东工厂
     sed -ie '/jd_jdfactory.js/d' /scripts/docker/merged_list_file.sh
