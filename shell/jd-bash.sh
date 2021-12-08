@@ -150,9 +150,6 @@ function otherreplace(){
     sed -ie '/jd_big_winner/d' /scripts/docker/merged_list_file.sh
     # 推一推
     sed -ie '/jd_tyt/d' /scripts/docker/merged_list_file.sh
-    # 金榜年终奖
-    sed -ie '/jd_split.js/d' /scripts/docker/merged_list_file.sh
-    echo "6 0,2 * * * node /scripts/jd_split.js >> /scripts/logs/jd_split.log 2>&1" >> /scripts/docker/merged_list_file.sh
     
    # -----------------------------自己服务器环境判断（特殊设置）---------------------------------
    if [ -f /scripts/logs/myFlag.txt ]; then
