@@ -31,7 +31,7 @@ function jd_diy(){
     
     # 设置环境变量
     cp -f /jd_diy/env/jd_env.sh /etc/profile.d
-    source /etc/profile
+    source /etc/profile.d/jd_env.sh
 }
 
 
