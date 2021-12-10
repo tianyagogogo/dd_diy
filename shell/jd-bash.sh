@@ -85,7 +85,7 @@ function faker3_diy(){
         git -C /faker3 reset --hard
         git -C /faker3 pull origin main --rebase
     fi
-    cp -f /faker3/jd_bean_change.js /faker3/jd_jxlhb.js /faker3/jd_split.js /faker3/jd_cfd.js /scripts
+    cp -f /faker3/jd_bean_change.js /faker3/jd_jxlhb.js /faker3/jd_split.js /faker3/jd_redEnvelope.js /faker3/jd_cfd.js /scripts
 }
 
 
@@ -142,6 +142,11 @@ function otherreplace(){
      # 发财挖宝
      sed -ie '/jd_fcwb/d' /scripts/docker/merged_list_file.sh
      # echo "5 7 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     
+     # 暖暖红包
+     sed -ie '/jd_redEnvelope/d' /scripts/docker/merged_list_file.sh
+     echo "0 0,12 * * * node /scripts/jd_redEnvelope.js >> /scripts/logs/jd_redEnvelope.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     
      
     #------------------------------黑号删除脚本-----------------------------------------
     # 京东极速版红包
