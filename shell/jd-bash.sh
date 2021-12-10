@@ -30,7 +30,7 @@ function jd_diy(){
     cat /jd_diy/shell/auto_help.sh >> /scripts/docker/auto_help.sh
     
     # 设置环境变量
-    cp -f /env/jd_env.sh /etc/profile.d
+    cp -f /jd_diy/env/jd_env.sh /etc/profile.d
     source /etc/profile
 }
 
