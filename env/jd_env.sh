@@ -1,1 +1,1 @@
-export dd_diy_version="2.0"
+export dd_diy_version="1.0"
