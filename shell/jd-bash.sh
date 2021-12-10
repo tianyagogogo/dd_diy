@@ -85,7 +85,7 @@ function faker3_diy(){
         git -C /faker3 reset --hard
         git -C /faker3 pull origin main --rebase
     fi
-    cp -f /faker3/jd_bean_change.js /faker3/jd_jxlhb.js /faker3/jd_split.js /faker3/jd_redEnvelope.js /faker3/jd_cfd.js /scripts
+    cp -f /faker3/jd_bean_change.js /faker3/jd_jxlhb.js /faker3/jd_split.js /faker3/jd_cfd.js /scripts
 }
 
 
