@@ -102,11 +102,7 @@ function getcouponUrl() {
           console.log(`${$.name} getcouponUrl API请求失败，请检查网路重试`);
         } else {
           if (data) {
-            if ($.code === "nt5zCmM" || $.code === "nLhu1LP" || $.code === "ndhM07k" ) {
-              $.couponUrl = (data.match(/"value":"(.*)"\}'/) && data.match(/"value":"(.*)"\}'/)[1]) || ''
-            } else {
-              $.couponUrl = ''
-            }
+             $.couponUrl = (data.match(/"value":"(.*)"\}'/) && data.match(/"value":"(.*)"\}'/)[1]) || ''
           }
         }
       } catch (e) {
