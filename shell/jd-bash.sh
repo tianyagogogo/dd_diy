@@ -148,8 +148,8 @@ function otherreplace(){
      # echo "5 7 * * * node /scripts/jd_fcwb.js >> /scripts/logs/jd_fcwb.log 2>&1" >> /scripts/docker/merged_list_file.sh
      
      # 暖暖红包
-     sed -ie '/jd_redEnvelope/d' /scripts/docker/merged_list_file.sh
-     echo "0 0,12 * * * node /scripts/jd_redEnvelope.js >> /scripts/logs/jd_redEnvelope.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     # sed -ie '/jd_redEnvelope/d' /scripts/docker/merged_list_file.sh
+     # echo "0 0,12 * * * node /scripts/jd_redEnvelope.js >> /scripts/logs/jd_redEnvelope.log 2>&1" >> /scripts/docker/merged_list_file.sh
      
      
     #------------------------------黑号删除脚本-----------------------------------------
