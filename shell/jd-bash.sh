@@ -182,6 +182,7 @@ function npmInstall(){
       else
         echo "packagejson更新，执行npm install"
         npm install --prefix /scripts
+        npm install --save js-base64
       fi
 
 }
