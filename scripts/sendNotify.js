@@ -240,8 +240,8 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
     return ;
    }
  
-  if(text.indexOf('金融养猪') >-1 ||  text.indexOf('京东手机狂欢城') >-1 || text.indexOf('汽车生活节') >-1   ){
-    console.log(' 金融养猪 || 京东手机狂欢城 || 汽车生活节，不发送通知！')
+  if(text.indexOf('金融养猪') >-1 ||  text.indexOf('京东手机狂欢城') >-1 || text.indexOf('汽车生活节') >-1  || text.indexOf('京东CK检测') >-1 ){
+    console.log(' 金融养猪 || 京东手机狂欢城 || 京东CK检测 || 汽车生活节，不发送通知！')
     return ;
    }
   
