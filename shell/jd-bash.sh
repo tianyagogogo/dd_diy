@@ -151,6 +151,13 @@ function otherreplace(){
      # sed -ie '/jd_redEnvelope/d' /scripts/docker/merged_list_file.sh
      # echo "0 0,12 * * * node /scripts/jd_redEnvelope.js >> /scripts/logs/jd_redEnvelope.log 2>&1" >> /scripts/docker/merged_list_file.sh
      
+     #京豆雨
+     sed -ie '/jd_redrain_half/d' /scripts/docker/merged_list_file.sh
+     echo "31 20-23/1 * * * node /scripts/jd_redrain_half.js >> /scripts/logs/jd_redrain_half.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     sed -ie '/jd_redrain/d' /scripts/docker/merged_list_file.sh
+     echo "0 * * * * node /scripts/jd_redrain.js >> /scripts/logs/jd_redrain.log 2>&1" >> /scripts/docker/merged_list_file.sh
+     
+     
      
     #------------------------------黑号删除脚本-----------------------------------------
     # 京东极速版红包
