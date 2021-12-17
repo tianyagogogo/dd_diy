@@ -180,8 +180,8 @@ if (process.env.PUSH_PLUS_USER) {
  */
 async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie过期，点 https://jd.online189.cf/zheng/cookie/v2/index 挂机') {
     
-   if( !( text.indexOf('京东资产变动通知' ) >-1  
-          ||  ( text.indexOf('cookie已失效') >-1 && text.indexOf('京东资产变动通知') === -1 ) 
+   if( !( text.indexOf('京东资产变动' ) >-1  
+          ||  ( text.indexOf('cookie已失效') >-1 && text.indexOf('京东资产变动') === -1 ) 
           ||  desp.indexOf('已成熟') >-1
           ||  desp.indexOf('已可领取') >-1
         ) ) {
