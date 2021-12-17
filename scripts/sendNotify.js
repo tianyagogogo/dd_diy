@@ -179,78 +179,18 @@ if (process.env.PUSH_PLUS_USER) {
  * @returns {Promise<unknown>}
  */
 async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie过期，点 https://jd.online189.cf/zheng/cookie/v2/index 挂机') {
-  
-   if( desp==null || desp=='' ){
-    console.log('desp数据为空，不发送通知！')
-    return ;
-   } 
- 
-  
-  
-  if( text.indexOf('天天提鹅cookie已失效') >-1 )  {
-    console.log(text +' 不发送通知')
-    return ;
-  } 
-  
-  if( text.indexOf('cookie已失效') >-1 && text.indexOf('京东资产变动通知') === -1  )  {
-    console.log(text +' 不发送通知')
-    return ;
-   } 
-  
-  
-    if( text.indexOf('省钱大赢家之翻翻乐') >-1   )  {
-      console.log(text +' 不发送通知')
-      return ;
-   } 
-  
-  
-  
-  if( text.indexOf('京东到家果园') >-1 &&  desp.indexOf('已成熟') <= -1 )  {
-    console.log('京东到家果园未成熟，不发送通知！')
-    return ;
-   } 
-
-  if(text.indexOf('京东到家果园互助码') >-1 ){
-    console.log('京东到家果园互助码信息，不发送通知！')
-    return ;
-   }
-  
-   if(text.indexOf('摇京豆') >-1 ){
-    console.log('摇京豆，不发送通知！')
-    return ;
-   }
-  
-   if(text.indexOf('5G超级盲盒') >-1 ){
-    console.log('5G超级盲盒，不发送通知！')
-    return ;
-   }
-  
-   if(text.indexOf('东东萌宠') >-1 &&  desp.indexOf('已领取红包,但未继续领养新的物品') > -1 ){
-    console.log('东东萌宠,已领取红包,但未继续领养新的物品，不发送通知！')
-    return ;
-   }
-
-  if( desp.indexOf('请选择新商品进行制造') >-1 ){
-    console.log('请选择新商品进行制造，不发送通知！')
-    return ;
-   }
- 
-  if( text.indexOf('东东农场') >-1 && desp.indexOf('您忘了种植新的水果') >-1 ){
-    console.log('您忘了种植新的水果，不发送通知！')
-    return ;
-   }
- 
-  if(text.indexOf('金融养猪') >-1 ||  text.indexOf('京东手机狂欢城') >-1 || text.indexOf('汽车生活节') >-1  
-     || text.indexOf('京东CK检测') >-1 || text.indexOf('新增任务') >-1 || text.indexOf('愤怒的锦鲤') >-1 || text.indexOf('红包雨') >-1 ) {
     
-    console.log(' 金融养猪 || 京东手机狂欢城 || 京东CK检测 || 新增任务|| 愤怒的锦鲤 || 红包雨 ||汽车生活节，不发送通知！')
-    return ;
+   if( !( text.indexOf('京东资产变动通知' ) >-1  
+          ||  ( text.indexOf('cookie已失效') >-1 && text.indexOf('京东资产变动通知') === -1 ) 
+          ||  desp.indexOf('已成熟') >-1
+          ||  desp.indexOf('已可领取') >-1
+        ) ) {
+        console.log( text + ' 不发送通知！')
+        return ;
    }
   
-  if(text.indexOf('京东签到图形验证') >-1 || text.indexOf('京东多合一签到') >-1){
-    console.log('签到类，不发送通知！')
-    return ;
-  }
+  
+
   
   
   
