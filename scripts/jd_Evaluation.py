@@ -16,9 +16,16 @@ import re
 import sys
 import time
 from urllib.parse import unquote
-from sendNotify import send
 import jieba.analyse
 import requests
+
+# 检查是否下载sendNotify.py
+if os.path.exists('sendNotify.py') == False:
+    pwd = os.path.dirname(os.path.abspath(__file__)) + os.sep
+    req = requests.get("https://ghproxy.com/https://raw.githubusercontent.com/gys619/jdd/main/sendNotify.py")
+    with open(pwd + 'sendNotify.py', "wb") as f:
+        f.write(req.content)
+from sendNotify import send
 
 jieba.setLogLevel(jieba.logging.INFO)
 
