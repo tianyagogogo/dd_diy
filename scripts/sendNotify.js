@@ -185,6 +185,7 @@ async function sendNotify(text, desp, params = {}, author = '\n 若提示cookie�
           ||  desp.indexOf('已可领取') >-1
           ||  text.indexOf('京东白嫖榜' ) >-1  
           ||  text.indexOf('新增任务' ) >-1  
+          ||  text.indexOf('可以兑换了' ) >-1  
          
         ) ) {
         console.log( text + ' 不发送通知！')
