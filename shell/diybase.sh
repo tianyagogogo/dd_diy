@@ -11,6 +11,8 @@ function replace(){
     sed -i "s/https:\/\/purge.jsdelivr.net\/gh\/Aaron-lv\/updateTeam@master\/shareCodes\/cfd.json/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxcfd.json/g" /ql/scripts/shufflewzc_faker2/jd_cfd.js
     sed -i "s/https:\/\/cdn.jsdelivr.net\/gh\/Aaron-lv\/updateTeam@master\/shareCodes\/cfd.json/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxcfd.json/g" /ql/scripts/shufflewzc_faker2/jd_cfd.js
     sed -i "s/https:\/\/transfer.nz.lu\/cfd/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxcfd.json/g" /ql/scripts/shufflewzc_faker2/jd_cfd.js
+    sed -i "s/https:\/\/raw.githubusercontent.com\/shufflewzc\/updateTeam\/main\/shareCodes\/cfd.json/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxcfd.json/g" /ql/scripts/shufflewzc_faker2/jd_cfd.js
+    sed -i "s/https:\/\/raw.fastgit.org\/shufflewzc\/updateTeam\/main\/shareCodes\/cfd.json/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jxcfd.json/g" /ql/scripts/shufflewzc_faker2/jd_cfd.js
 }
 
 function main(){
