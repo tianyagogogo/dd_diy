@@ -197,7 +197,7 @@ function npmInstall(){
 
 function main(){
     # wuzhi_diy
-    faker3_diy
+    # faker3_diy
     npmInstall
     jddj_diy
     jd_diy
