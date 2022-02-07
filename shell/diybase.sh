@@ -26,7 +26,7 @@ function replace(){
 
 function main(){
     jd_diy
-    replace
+    # replace
 }
 
 main
