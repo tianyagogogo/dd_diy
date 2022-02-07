@@ -3,7 +3,7 @@
 function jd_diy(){
     cp -f /jd_diy/scripts/sendNotify.js /ql/scripts
     # cp -f /jd_diy/scripts/* /ql/scripts/shufflewzc_faker2
-    cp -f /jd_diy/scripts/*  /ql/scripts/okyyds_yyds_master
+    cp -f /jd_diy/scripts/* /ql/scripts/okyyds_yyds_master
     echo 'sendNotify替换完成'
 }
 
