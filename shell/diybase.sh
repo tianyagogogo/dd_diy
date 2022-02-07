@@ -8,7 +8,7 @@ function jd_diy(){
 }
 
 function replace(){
-    sed -i "s/http:\/\/transfer.nz.lu\/farm/https:\/\/ghproxy.com\/https:\/\/github.com\/l107868382\/sharcode\/blob\/main\/v1\/JD_Fruit.json/g" /ql/scripts/shufflewzc_faker2/jd_fruit.js
+    #sed -i "s/http:\/\/transfer.nz.lu\/farm/https:\/\/ghproxy.com\/https:\/\/github.com\/l107868382\/sharcode\/blob\/main\/v1\/JD_Fruit.json/g" /ql/scripts/shufflewzc_faker2/jd_fruit.js
     #sed -i "s/http:\/\/transfer.nz.lu\/city/https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/l107868382\/sharcode\/main\/v1\/jd_city.json/g" /ql/scripts/shufflewzc_faker2/jd_city.js
    
     ## 城城分现金
