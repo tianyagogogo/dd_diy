@@ -199,11 +199,11 @@ function main(){
     # wuzhi_diy
     # faker3_diy
     npmInstall
-    jddj_diy
+    # jddj_diy
     jd_diy
    # smiek2221
-    diycron
-    otherreplace
+    # diycron
+    # otherreplace
 }
 
 main
