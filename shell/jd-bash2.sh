@@ -11,6 +11,9 @@ function main(){
    jd_diy
    cat /dev/null > /scripts/docker/merged_list_file.sh
    
+   ln -sf /usr/local/bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint_mix.sh
+   echo "18 */3 * * * docker_entrypoint_mix.sh >> /scripts/logs/default_task.log 2>&1" >> /scripts/docker/merged_list_file.sh
+   
    # 极速版签到
    echo "25 12 * * * sh +x /scripts/logs/synck.sh node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1" >> /scripts/docker/merged_list_file.sh
    
